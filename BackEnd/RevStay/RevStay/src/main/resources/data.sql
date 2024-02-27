@@ -66,16 +66,16 @@ CREATE TABLE Customer_Review(
     Review_Body varchar(200) NOT NULL,
     Hotel_Id int NOT NULL,
     Customer_Id int NOT NULL,
-    FOREIGN_KEY(Hotel_Id) references Hotel_Account(Hotel_Id),
-    FOREIGN_KEY(Customer_Id) references Customer_Account(Customer_Id)
+    FOREIGN KEY(Hotel_Id) references Hotel_Account(Hotel_Id),
+    FOREIGN KEY(Customer_Id) references Customer_Account(Customer_Id)
 );
 
 CREATE TABLE Customer_Favorite(
     Favorite_Id int NOT NULL PRIMARY KEY auto_increment,
     Hotel_Id int NOT NULL,
     Customer_Id int NOT NULL,
-    FOREIGN_KEY(Hotel_Id) references Hotel_Account(Hotel_Id),
-    FOREIGN_KEY(Customer_Id) references Customer_Account(Customer_Id)
+    FOREIGN KEY(Hotel_Id) references Hotel_Account(Hotel_Id),
+    FOREIGN KEY(Customer_Id) references Customer_Account(Customer_Id)
 );
 
 

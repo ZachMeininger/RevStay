@@ -1,0 +1,16 @@
+<p>register works!</p>
+
+<div>
+    <h2>Registration</h2>
+    <label>
+        Email Address:
+        <input [(ngModel)]="userEmail" type = "text"/>
+    </label>
+    <br>
+    <label>
+        Password:
+        <input [(ngModel)]="userPassword" type = "password"/>
+    </label>
+    <br>
+    <button (click)="handleReg()">Create Account</button>
+</div>
