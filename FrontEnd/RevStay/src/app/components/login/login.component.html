@@ -1,1 +1,15 @@
-<p>login works!</p>
+
+<div>
+    <h2>Login</h2>
+    <label>
+        Email Address:
+        <input [(ngModel)]="userEmail" type = "text"/>
+    </label>
+    <br>
+    <label>
+        Password:
+        <input [(ngModel)]="userPassword" type = "password"/>
+    </label>
+    <br>
+    <button (click)="handleLogin()">Log In</button>
+</div>
