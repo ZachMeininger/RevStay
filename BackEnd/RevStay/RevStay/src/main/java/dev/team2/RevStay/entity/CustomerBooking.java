@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.cglib.core.Local;
 
+import java.awt.print.Book;
 import java.time.LocalDate;
 
 @Entity
@@ -23,26 +24,30 @@ public class CustomerBooking {
 
     private Boolean bookingAccepted;
 
+    private Integer bookingGuests;
+
     private Integer roomId;
 
     public CustomerBooking() {
 
     }
 
-    public CustomerBooking(LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer RoomId) {
+    public CustomerBooking(LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer BookingGuests, Integer RoomId) {
         this.bookingStart = BookingStart;
         this.bookingEnd = BookingEnd;
         this.bookingPaid = BookingPaid;
         this.bookingAccepted = BookingAccepted;
+        this.bookingGuests = BookingGuests;
         this.roomId = RoomId;
     }
 
-    public CustomerBooking(Integer BookingId, LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer RoomId) {
+    public CustomerBooking(Integer BookingId, LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer BookingGuests, Integer RoomId) {
         this.bookingId = BookingId;
         this.bookingStart = BookingStart;
         this.bookingEnd = BookingEnd;
         this.bookingPaid = BookingPaid;
         this.bookingAccepted = BookingAccepted;
+        this.bookingGuests = BookingGuests;
         this.roomId = RoomId;
     }
 
@@ -84,6 +89,14 @@ public class CustomerBooking {
 
     public void setBookingAccepted(Boolean BookingAccepted) {
         this.bookingAccepted = BookingAccepted;
+    }
+
+    public Integer getBookingGuests() {
+        return bookingGuests;
+    }
+
+    public void setBookingGuests(Integer BookingGuests) {
+        this.bookingGuests = BookingGuests;
     }
 
     public Integer getRoomId() {

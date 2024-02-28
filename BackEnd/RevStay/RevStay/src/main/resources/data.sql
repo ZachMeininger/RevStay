@@ -56,6 +56,7 @@ CREATE TABLE Customer_Booking(
     Booking_End date NOT NULL,
     Booking_Paid bit NOT NULL,
     Booking_Accepted bit NOT NULL,
+    Booking_Guests int NOT NULL,
     Room_Id int NOT NULL,
     FOREIGN KEY(Room_Id) references Hotel_Room(Room_Id)
 );
