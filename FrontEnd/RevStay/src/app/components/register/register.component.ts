@@ -19,6 +19,9 @@ export class RegisterComponent {
   securityAnswer: String  = '';
   accountType: Number = 0;
 
+  userFirst: String = '';
+  userLast: String = '';
+
   handleReg(): void {
     const UserAccount = {
       userId: this.userId,

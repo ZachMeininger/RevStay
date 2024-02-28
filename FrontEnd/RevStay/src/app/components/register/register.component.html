@@ -40,6 +40,16 @@
 
     <ng-template #hotel_reg>
         <h1>Guest Account</h1>
+        <label>
+            First Name:
+            <input [(ngModel)]="userFirst" type = "text"/>
+        </label>
+        <br>
+        <label>
+            Last Name:
+            <input [(ngModel)]="userLast" type = "text"/>
+        </label>
+        <br>
     </ng-template>
 
     <button (click)="handleReg()">Create Account</button>
