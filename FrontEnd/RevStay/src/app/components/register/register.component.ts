@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, NavbarComponent],
+  imports: [FormsModule, CommonModule, NavbarComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -14,8 +15,8 @@ export class RegisterComponent {
   userId: Number = 0;
   userEmail: String = '';
   userPassword: String = '';
-  securityQuestion: String = 'a';
-  securityAnswer: String  = 'b';
+  securityQuestion: String = '';
+  securityAnswer: String  = '';
   accountType: Number = 0;
 
   handleReg(): void {
@@ -38,6 +39,17 @@ export class RegisterComponent {
 
     .then((response) => response.json())
     .then((json) => console.log(json));
+  }
+
+  handleType(): void {
+    if(this.accountType == 0)
+    {
+      this.accountType = 1;
+    }
+    else if(this.accountType == 1)
+    {
+      this.accountType = 0;
+    }
   }
 
 }

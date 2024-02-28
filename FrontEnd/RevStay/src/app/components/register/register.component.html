@@ -11,5 +11,36 @@
         <input [(ngModel)]="userPassword" type = "password"/>
     </label>
     <br>
+    <label>
+        Security Question:
+        <input [(ngModel)]="securityQuestion" type = "text"/>
+    </label>
+    <br>
+    <label>
+        Answer:
+        <input [(ngModel)]="securityAnswer" type = "text"/>
+    </label>
+    <br>
+
+    <form (change) = "handleType()">
+        <label>
+            <input type = "radio" name="userType" checked="checked">
+            <span>Hotel Guest</span>
+        </label>
+        <label>
+            <input type = "radio" name="userType">
+            <span>Hotel Owner</span>
+        </label>
+             
+    </form>
+
+    <div *ngIf="accountType; else hotel_reg">
+        <h1>Owner Account</h1>
+    </div>
+
+    <ng-template #hotel_reg>
+        <h1>Guest Account</h1>
+    </ng-template>
+
     <button (click)="handleReg()">Create Account</button>
 </div>
