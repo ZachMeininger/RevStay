@@ -54,6 +54,8 @@ export class LoginComponent {
         {
             let data = await response.json();
             console.log(data);
+            sessionStorage.setItem("userId", data.userId);
+            sessionStorage.setItem("loggedIn", data.accountType);
         }
     }
   }

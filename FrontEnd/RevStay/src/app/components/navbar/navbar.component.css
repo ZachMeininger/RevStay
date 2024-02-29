@@ -1,0 +1,34 @@
+.cust_bar {
+    position: absolute;
+    text-align: right;
+    background-color: navy;
+    padding: 1rem;
+    top:0;
+    left:0;
+    right:0;
+}
+
+nav {
+    position: absolute;
+    text-align: right;
+    background-color: navy;
+    padding: 1rem;
+    top:0;
+    left:0;
+    right:0;
+}
+
+
+a:hover {
+    background-color: slategray;
+}
+
+a {
+    padding: 5px 16px;
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none;
+    color: white;
+    background-color: navy;
+    transition: 0.3s;
+}

@@ -1,6 +1,7 @@
 package dev.team2.RevStay.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import dev.team2.RevStay.entity.CustomerAccount;
 import dev.team2.RevStay.entity.UserAccount;
 import dev.team2.RevStay.service.CustomerAccountService;
 import dev.team2.RevStay.service.HotelAccountService;
@@ -55,6 +56,21 @@ public class RevStayController {
             }
         }
     }
+
+    @PostMapping(value = "registerCustomer")
+    public ResponseEntity<CustomerAccount> registrationCustHandler(@RequestBody CustomerAccount customeraccount) throws JsonProcessingException
+    {
+        CustomerAccount accountCheck = customeraccountService.addCustomerAccount(customeraccount);
+        if(accountCheck != null)
+        {
+            return ResponseEntity.ok(accountCheck);
+        }
+        else
+        {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(accountCheck);
+        }
+    }
+
 
     @PostMapping(value = "/login")
     public ResponseEntity<UserAccount> loginHandler(@RequestBody UserAccount useraccount) throws JsonProcessingException

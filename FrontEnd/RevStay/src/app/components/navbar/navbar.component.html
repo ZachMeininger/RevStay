@@ -1,5 +1,23 @@
-<nav>
+
+
+<nav *ngIf="loggedIn==2; else cust_bar">
     <a href = "/">Home</a>
     <a href ="/register">Create Account</a>
     <a href = "/login">Log In</a>
 </nav>
+
+<ng-template #cust_bar>
+    <nav *ngIf="loggedIn==0; else owner_bar">
+        <a href = "/">Home</a>
+        <a href ="/">Bookings</a>
+        <a href = "/">Sign Out</a>
+    </nav>
+</ng-template>
+
+<ng-template #owner_bar>
+    <nav>
+        <a href = "/">Home</a>
+        <a href ="/">Bookings</a>
+        <a href = "/">Sign Out</a>
+    </nav>
+</ng-template>
