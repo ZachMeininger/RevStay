@@ -1,0 +1,15 @@
+<p>home works!</p>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<ul>
+    <ng-container *ngIf="hotelList$ | async as hotelList">
+        @for (hotel of hotelList; track hotel;) {
+            <li>
+                <app-hotel-showcase [inputHotel]=hotel></app-hotel-showcase>
+
+                
+            </li>
+           }
+    </ng-container>
+  
+</ul>

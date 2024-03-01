@@ -1,0 +1,19 @@
+<div>
+    @if(hotel){
+
+        <!--
+        <h1> Name of Hotel : {{hotel.Hotel_Name}} </h1>
+        <img src = {{hotel.Hotel_Image}} alt = "hotel image"/>
+        <button type = "button" (click) = "testClick()"> Image of Hotel </button> -->
+        
+        <h1> Name of Hotel : {{hotel.hotelName}} </h1>
+        
+        <label for = "hotelButton">Button</label>
+        <button id = "hotelButton">
+            <img src = "" alt = "TEST" />
+        </button>
+    } @else {
+        <p>Sorry no hotel here</p>
+    }
+
+</div>
