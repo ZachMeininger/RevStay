@@ -2,6 +2,7 @@ package dev.team2.RevStay.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dev.team2.RevStay.entity.CustomerAccount;
+import dev.team2.RevStay.entity.HotelAccount;
 import dev.team2.RevStay.entity.UserAccount;
 import dev.team2.RevStay.service.CustomerAccountService;
 import dev.team2.RevStay.service.HotelAccountService;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -81,5 +84,19 @@ public class RevStayController {
             return ResponseEntity.ok(accountCheck);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(accountCheck);
+    }
+
+    @GetMapping(value = "/AllHotels")
+    public ResponseEntity<List<HotelAccount>> getAllHotelsHandler() throws JsonProcessingException
+    {
+        List<HotelAccount> hotel = hotelaccountService.getAllHotels();
+
+        System.out.println(hotel);
+
+        if(hotel != null)
+        {
+            return ResponseEntity.ok(hotel);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(hotel);
     }
 }
