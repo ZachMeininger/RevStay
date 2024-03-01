@@ -1,11 +1,11 @@
 export interface Hotel{
-    Hotel_Id:number,
+    hotelId:number,
     hotelName:string,
-    Hotel_Address:string,
-    Hotel_Description:string,
-    Hotel_Image:string,
-    Hotel_Pool:number,
-    Hotel_Sauna:number,
-    Hotel_Rest:number,
-    User_Id:number
+    hotelAddress:string,
+    hotelDescription:string,
+    hotelImage:string,
+    hotelPool:number,
+    hotelSauna:number,
+    hotelRest:number,
+    userId:number
 }
