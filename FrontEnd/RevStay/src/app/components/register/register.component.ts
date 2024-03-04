@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  
+  constructor(private router: Router) {}
+  
+  
   userId: Number = 0;
   userEmail: String = '';
   userPassword: String = '';
@@ -31,6 +36,13 @@ export class RegisterComponent {
       securityQuestion: this.securityQuestion,
       securityAnswer: this.securityAnswer,
       accountType: this.accountType
+    };
+
+    const CustomerAccount = {
+      customerId: this.customerId,
+      customerFirst: this.customerFirst,
+      customerLast: this.customerLast,
+      userId: sessionStorage.getItem("userId")
     };
 
     
@@ -55,17 +67,10 @@ export class RegisterComponent {
     }
     else
     {
-        fetchData();
-
-        const CustomerAccount = {
-          customerId: this.customerId,
-          customerFirst: this.customerFirst,
-          customerLast: this.customerLast,
-          userId: localStorage.getItem("userId")
-        };
+      fetchData(this.router);
     }
 
-    async function fetchData() {
+    async function fetchData(router : any) {
 
         let response = await fetch("http://localhost:8080/register", {
         method: "POST",
@@ -87,8 +92,41 @@ export class RegisterComponent {
             console.log(data);
             sessionStorage.setItem("userId", data.userId);
             sessionStorage.setItem("loggedIn", data.accountType);
-            window.alert("Sucess!!! Account Created");
+            if(data.accountType == 0)
+            {
+              CustomerAccount.userId = data.userId;
+
+              fetchDataCust(router);
+            }
+            else if(data.accountType == 1)
+            {
+              
+            }
         }
+    }
+
+    async function fetchDataCust(router : any) {
+      let response = await fetch("http://localhost:8080/registerCustomer", {
+      method: "POST",
+      body: JSON.stringify(CustomerAccount),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+      })
+
+      if(response.status >= 500)
+      {
+          console.log("Error");
+      }
+      else if(response.status >= 400 && response.status < 500)
+      {
+
+      }
+      else
+      {
+          let data = await response.json();
+          console.log(data);
+          window.alert("Sucess!!! Account Created");
+          router.navigate(['/home']);
+      }
     }
 
   }

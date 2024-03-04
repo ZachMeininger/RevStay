@@ -59,7 +59,7 @@ public class HotelAccount {
         return hotelId;
     }
 
-    public void setCustomerId(Integer HotelId) {
+    public void setHotelId(Integer HotelId) {
         this.hotelId = HotelId;
     }
 
