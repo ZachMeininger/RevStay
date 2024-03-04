@@ -82,9 +82,14 @@ CREATE TABLE Customer_Favorite(
 
 
 INSERT INTO User_Account VALUES (1,'email','password','sq','sa',1);
+INSERT INTO Customer_Account VALUES (1,'email','password',1);
 INSERT INTO Hotel_Account VALUES (1,'name1','address1','description1','image1',0,0,0,1);
 INSERT INTO Hotel_Account VALUES (2,'name2','address2','description2','image2',0,0,0,1);
 INSERT INTO Hotel_Account VALUES (3,'name3','address3','description3','image3',0,0,0,1);
 INSERT INTO Hotel_Account VALUES (4,'name4','address4','description4','image4',0,0,0,1);
+
+INSERT INTO Customer_Review VALUES (1,4,'first review',2,1);
+INSERT INTO Customer_Review VALUES (2,2,'first review',2,1);
+INSERT INTO Customer_Review VALUES (3,3,'first review',2,1);
 
 

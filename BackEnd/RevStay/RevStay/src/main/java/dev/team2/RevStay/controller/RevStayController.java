@@ -2,13 +2,11 @@ package dev.team2.RevStay.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dev.team2.RevStay.entity.CustomerAccount;
+import dev.team2.RevStay.entity.CustomerReview;
 import dev.team2.RevStay.entity.HotelAccount;
 import dev.team2.RevStay.entity.UserAccount;
-import dev.team2.RevStay.service.CustomerAccountService;
-import dev.team2.RevStay.service.HotelAccountService;
-import dev.team2.RevStay.service.HotelRoomService;
+import dev.team2.RevStay.service.*;
 
-import dev.team2.RevStay.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +36,8 @@ public class RevStayController {
     HotelAccountService hotelaccountService;
     @Autowired
     HotelRoomService hotelroomService;
+    @Autowired
+    CustomerReviewService customerReviewService;
 
     @PostMapping(value = "/register")
     public ResponseEntity<UserAccount> registrationHandler(@RequestBody UserAccount useraccount) throws JsonProcessingException
@@ -91,12 +91,41 @@ public class RevStayController {
     {
         List<HotelAccount> hotel = hotelaccountService.getAllHotels();
 
-        System.out.println(hotel);
+        //System.out.println(hotel);
 
         if(hotel != null)
         {
             return ResponseEntity.ok(hotel);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(hotel);
+    }
+    @PostMapping(value = "/newReview")
+    public ResponseEntity<CustomerReview> createNewReviewHandler(@RequestBody CustomerReview review) throws JsonProcessingException
+    {
+
+        CustomerReview check = customerReviewService.addReview(review);
+
+        //System.out.println(check);
+
+        if(check != null)
+        {
+            return ResponseEntity.ok(check);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(check);
+    }
+
+    @PostMapping(value = "/allReview")
+    public ResponseEntity<List<CustomerReview>> getAllReviewHandler(@RequestBody Integer hotel_id) throws JsonProcessingException
+    {
+
+        List<CustomerReview> check = customerReviewService.getAllReviews(hotel_id);
+
+        System.out.println(check);
+
+        if(check != null)
+        {
+            return ResponseEntity.ok(check);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(check);
     }
 }
