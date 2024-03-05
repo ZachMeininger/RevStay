@@ -46,4 +46,20 @@ export class HotelService {
       return json;
       //return json.stringify; 
     };
+  async getRoomsByHotelId(hotelId: Number)  {
+    
+    
+      const productFetch ={
+        method: "GET",
+        //body: JSON.stringify(currentHotel),
+        headers: {"Content-type": "application/json; charset=UTF-8"},
+      }
+     
+      let response = await fetch(`http://localhost:8080/hotel${hotelId}`, productFetch )
+     
+      //list of objects (being hotels)
+      let json = await response.json();
+      return json;
+      //return json.stringify; 
+    };
 }

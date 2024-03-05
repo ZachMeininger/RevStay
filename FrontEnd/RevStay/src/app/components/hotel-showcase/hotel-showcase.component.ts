@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { Hotel } from '../../models/hotel';
 import { CurrencyPipe } from '@angular/common';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-showcase',
   standalone: true,
-  imports: [CurrencyPipe,AsyncPipe, CommonModule],
+  imports: [CurrencyPipe,AsyncPipe, CommonModule,RouterModule],
   templateUrl: './hotel-showcase.component.html',
   styleUrl: './hotel-showcase.component.css'
 })

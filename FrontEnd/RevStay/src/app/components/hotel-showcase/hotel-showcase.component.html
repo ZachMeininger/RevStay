@@ -6,10 +6,11 @@
         <img src = {{hotel.Hotel_Image}} alt = "hotel image"/>
         <button type = "button" (click) = "testClick()"> Image of Hotel </button> -->
         
-        <h1> Name of Hotel : {{hotel.hotelName}} </h1>
+        <h1>Name of Hotel : {{hotel.hotelName}} </h1>
         
         <label for = "hotelButton">Button</label>
-        <button id = "hotelButton">
+        <button id = "hotelButton"
+        routerLink="/hotel/{{hotel.hotelId}}">
             <img src = "" alt = "TEST" />
         </button>
     } @else {
