@@ -9,8 +9,7 @@
         <h1>Name of Hotel : {{hotel.hotelName}} </h1>
         
         <label for = "hotelButton">Button</label>
-        <button id = "hotelButton"
-        routerLink="/hotel/{{hotel.hotelId}}">
+        <button id = "hotelButton" (click) = "loadProductPage(hotel)">
             <img src = "" alt = "TEST" />
         </button>
     } @else {

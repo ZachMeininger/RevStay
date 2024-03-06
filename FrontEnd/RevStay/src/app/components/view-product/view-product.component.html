@@ -1,1 +1,39 @@
-<p>view-product works!</p>
+<br/><br/><br/><br/><br/>
+
+@if(hotelObject){
+    <div style = "text-align: center;">
+        
+
+            <h1> {{hotelObject.hotelName}}</h1>
+            <h2>{{hotelObject.hotelAddress}}</h2>
+            <p> {{hotelObject.hotelDescription}}</p>
+            <img src ="{{hotelObject.hotelImage}}"  alt = "{{hotelObject.hotelImage}}"/>
+
+            <br/><br/><br/>
+
+            <button (click) = "createReview()">Leave a Review</button> <button> Book Room </button>
+
+            <br/><br/>
+
+            <div id = "reviewSpace" hidden>
+                <input id = "ratingField"  type = "number" placeholder = "Please enter your rating out of 5" value = ""/>
+                <input id = "inputField" (keypress) = "finishReview($event)" type = "text" placeholder = "Write your review here" style = "width: 500px; height: 100px;" value = "some placeholder"/>
+            </div>
+
+            <br/><br/><br/><br/>
+            <ng-container *ngFor="let review of hotelReviews; track review;">
+                    <div id = "allReviews">
+                        <label for = "reviewBody">{{review.customerId}} gave this hotel {{review.reviewStar}} stars</label>
+                        <p id = "reviewBody">{{review.reviewBody}}</p>
+                        <br/><br/>
+                    </div>
+            </ng-container>
+                
+        
+        
+    </div>
+}@else{
+
+    <p>Some Error Occured</p>
+
+}

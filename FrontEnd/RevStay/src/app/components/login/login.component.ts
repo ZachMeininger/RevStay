@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class LoginComponent {
 
+  constructor(private router: Router) {}
+
+  
   userId: Number = 0;
   userEmail: String = '';
   userPassword: String = '';
@@ -35,10 +39,10 @@ export class LoginComponent {
     }
     else
     {
-        fetchData();
+        fetchData(this.router);
     }
     
-    async function fetchData() {
+    async function fetchData(router : any) {
 
         let response = await fetch("http://localhost:8080/login", {
         method: "POST",
@@ -56,6 +60,7 @@ export class LoginComponent {
             console.log(data);
             sessionStorage.setItem("userId", data.userId);
             sessionStorage.setItem("loggedIn", data.accountType);
+            router.navigate(['/home']);
         }
     }
   }

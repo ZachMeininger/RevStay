@@ -13,4 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 })
 export class AppComponent {
   title = 'RevStay';
+
+  ngOnInit(): void {
+    sessionStorage.clear;
+  }
 }
