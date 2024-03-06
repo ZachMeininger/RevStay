@@ -1,5 +1,4 @@
 .cust_bar {
-    position: absolute;
     text-align: right;
     background-color: navy;
     padding: 1rem;
@@ -9,7 +8,6 @@
 }
 
 nav {
-    position: absolute;
     text-align: right;
     background-color: navy;
     padding: 1rem;

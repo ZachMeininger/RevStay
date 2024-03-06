@@ -9,8 +9,8 @@ import { HotelPageComponent } from './components/hotel-page/hotel-page.component
 export const routes: Routes = [
     {path:'register', component:RegisterComponent},
     {path:'login', component:LoginComponent},
-    {path: 'home', component:HomeComponent},
     {path: 'hotel/:id', component:HotelPageComponent},
+    {path: 'home', component:HomeComponent},
     {path: '', redirectTo: 'component:AppComponent', pathMatch: 'full'}
     
 ];

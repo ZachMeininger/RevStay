@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpHandler } from '@angular/common/http';
 import {HotelShowcaseComponent} from '../components/hotel-showcase/hotel-showcase.component';
 import { mockHotel, mockManyHotel } from '../utils/mockData';
 import {Hotel} from '../models/hotel';
-import { Observable } from 'rxjs';
+import {Room} from '../models/room';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json' })
+  };
+  
 
-  constructor() { }
+  constructor(
+    private http : HttpClient
+  ) { }
   /*
   //Testing Purposes==========================================
   getHotel(){
@@ -46,20 +55,11 @@ export class HotelService {
       return json;
       //return json.stringify; 
     };
-  async getRoomsByHotelId(hotelId: Number)  {
-    
-    
-      const productFetch ={
-        method: "GET",
-        //body: JSON.stringify(currentHotel),
-        headers: {"Content-type": "application/json; charset=UTF-8"},
-      }
+
+  getRoomsByHotelId(hotelId: Number) : Observable<Room[]>  {
      
-      let response = await fetch(`http://localhost:8080/hotel${hotelId}`, productFetch )
-     
-      //list of objects (being hotels)
-      let json = await response.json();
-      return json;
-      //return json.stringify; 
+     const url = `http://localhost:8080/RoomsByHotelId/${hotelId}`;
+      return this.http.get<Room[]>(url);
+      
     };
 }
