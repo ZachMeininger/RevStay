@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { Room } from '../../models/room'
 import { HotelService } from 'app/services/hotel.service';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +15,8 @@ export class HotelPageComponent implements OnInit{
   rooms: Room[] = [];
   checkInDate : Date = new Date();
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
     private hotelService: HotelService
   ) {}
 
@@ -24,13 +25,14 @@ export class HotelPageComponent implements OnInit{
   }
 
   getHotelRooms():void {
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id')!, 10);
     this.hotelService.getRoomsByHotelId(id)
       .subscribe(rooms => this.rooms = rooms);
 
   }
-  bookRoom() {
-
+  bookRoom(roomId: Number) {
+    this.hotelService.submitBooking()
+    this.router.navigate(["/"])
   }
 
 }

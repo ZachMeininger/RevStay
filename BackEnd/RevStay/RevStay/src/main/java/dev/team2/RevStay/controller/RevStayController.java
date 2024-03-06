@@ -120,7 +120,7 @@ public class RevStayController {
 
         List<CustomerReview> check = customerReviewService.getAllReviews(hotel_id);
 
-        System.out.println(check);
+        //System.out.println(check);
 
         if (check != null) {
             return ResponseEntity.ok(check);

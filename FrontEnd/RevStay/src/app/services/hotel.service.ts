@@ -62,4 +62,9 @@ export class HotelService {
       return this.http.get<Room[]>(url);
       
     };
+
+    submitBooking() {
+
+    }
+  
 }

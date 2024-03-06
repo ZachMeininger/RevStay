@@ -1,11 +1,13 @@
 <p>hotel-page works!</p>
 <input type="date" name="checkInDate" id="checkInDate">
 <input [(ngModel)]="checkInDate" type="date" name="checkOutDate" id="checkOutDate">
-<button type="button" class="book-button" (click) = "bookRoom()">Book Room</button>
+<label for="numGuests">Number of Guests</label>
+<input type="number" name="numGuests" id="numGuests">
 <ul class="rooms">
       @for(room of rooms; track room){
     <li>
         <span class="badge">{{room.roomId}}</span> {{room.roomName}}
+        <button (click) = "bookRoom(room.roomId)">Book Room</button>
     </li>
 }
   </ul>
