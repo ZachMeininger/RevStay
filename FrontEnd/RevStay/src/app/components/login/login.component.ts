@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -21,6 +22,8 @@ export class LoginComponent {
   securityAnswer: String  = 'b';
   accountType: Number = 0;
 
+  emailError: Number = 0;
+
   handleLogin() {
     const UserAccount = {
       userId: this.userId,
@@ -35,7 +38,7 @@ export class LoginComponent {
 
     if((UserAccount.userEmail).length == 0 || (UserAccount.userPassword).length == 0)
     {
-
+      this.emailError = 1;
     }
     else
     {
