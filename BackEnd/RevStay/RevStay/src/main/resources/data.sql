@@ -29,6 +29,8 @@ CREATE TABLE Hotel_Account(
     Hotel_Address varchar(100) NOT NULL,
     Hotel_Description varchar(200) NOT NULL,
     Hotel_Image varchar(200) NOT NULL,
+    Price_High decimal(10,2) NOT NULL,
+    Price_Low decimal(10,2) NOT NULL,
     Hotel_Pool bit NOT NULL,
     Hotel_Sauna bit NOT NULL,
     Hotel_Rest bit NOT NULL,

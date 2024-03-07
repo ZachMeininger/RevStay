@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {HotelShowcaseComponent} from './components/hotel-showcase/hotel-showcase.component';
@@ -11,10 +11,11 @@ import { HomeComponent } from './components/home/home.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'RevStay';
 
   ngOnInit(): void {
     sessionStorage.clear;
+    console.log('cleared');
   }
 }
