@@ -81,6 +81,16 @@ CREATE TABLE Customer_Favorite(
     FOREIGN KEY(Customer_Id) references Customer_Account(Customer_Id)
 );
 
+CREATE TABLE Customer_Invoice(
+    Invoice_Id int NOT NULL PRIMARY KEY auto_increment,
+    Invoice_Date date NOT NULL,
+    Invoice_Card char(4) NOT NULL,
+    Booking_Id int NOT NULL,
+    Customer_Id int NOT NULL,
+    FOREIGN KEY(Booking_Id) references Customer_Booking(Booking_Id),
+    FOREIGN KEY(Customer_Id) references Customer_Account(Customer_Id)
+);
+
 
 
 

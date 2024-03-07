@@ -11,5 +11,6 @@
         <input [(ngModel)]="userPassword" type = "password"/>
     </label>
     <br>
+    <h4 *ngIf="emailError" style="color: red;">Please include an email address and password</h4>
     <button (click)="handleLogin()">Log In</button>
 </div>
