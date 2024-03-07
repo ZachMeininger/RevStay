@@ -1,15 +1,16 @@
 <p>home works!</p>
 <br/><br/><br/><br/><br/><br/><br/><br/>
-
-<ul>
+<div>
+    <app-search (search)="addSearch($event)"></app-search>
+    <app-filter (newFilterType)="addFilters($event)" (newFilterValue)="addFiltersValue($event)" ></app-filter>
     <ng-container *ngIf="hotelList$ | async as hotelList">
         @for (hotel of hotelList; track hotel;) {
-            <li>
+            <div style = "text-align: center;">
                 <app-hotel-showcase [inputHotel]=hotel></app-hotel-showcase>
 
                 
-            </li>
+            </div>
            }
     </ng-container>
   
-</ul>
+</div>

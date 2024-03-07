@@ -29,8 +29,29 @@ export class HotelService {
 
   //getAllHotels(): Observable<Hotel[]> 
 
+  async searchHotels(hotel : Hotel)  {
+    
+    
+      const hotelFetch ={
+        method: "POST",
+        body: JSON.stringify(hotel),
+        headers: {"Content-type": "application/json; charset=UTF-8"},
+      }
+     
+      let response = await fetch("http://localhost:8080/named-hotel", hotelFetch )
+     
+      //list of objects (being hotels)
+      let json = await response.json();
+      return json;
+     
+       
+  };
 
-  async getAllHotels()  {
+
+  async getAllHotels(filters : string,filterValue:string|number,searchExpected:string)  {
+
+    let jsonPrice;
+    let jsonLocation;
     
     
       const productFetch ={
@@ -42,8 +63,47 @@ export class HotelService {
       let response = await fetch("http://localhost:8080/AllHotels", productFetch )
      
       //list of objects (being hotels)
-      let json = await response.json();
-      return json;
-      //return json.stringify; 
-    };
+      let responseBody = await response.json();
+
+      let searchList : typeof responseBody = [];
+      let useSearch = false;
+      let returnList : typeof responseBody = [];
+      
+      if(searchExpected != "" && searchExpected != null){
+        for(let a in responseBody){
+          if (responseBody[a].hotelName == searchExpected){
+            searchList.push(responseBody[a]);
+          }
+        }
+        useSearch = true;
+      }
+      if(useSearch == false){
+        searchList = responseBody;
+      }
+      for(let a in searchList){
+
+        jsonPrice = 0;
+        jsonLocation = searchList[a].hotelAddress;
+       
+        switch(filters){
+          case "location":
+            if(jsonLocation == filterValue){
+              returnList.push(searchList[a]);
+            }
+            break;
+          case "price":
+            if(jsonPrice == filterValue){
+              returnList.push(searchList[a]);
+            }
+            break;
+          default:
+            return searchList;
+        }
+      }
+     
+      return returnList;
+       
+  };
+
+
 }

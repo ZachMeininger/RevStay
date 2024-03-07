@@ -1,0 +1,21 @@
+<div id = "filterBox" style = "display: flex; flex-direction: column;">
+
+    <div>
+        <label>Filter</label><br/>
+        <input id = "filterText" type = "text" placeholder = "Please enter location" #filterText/>
+        <select name="filter" id="filter" (change) = "changeFilterType(filter.value)" #filter>
+            <option value="location"> Location </option>
+            <option value="price"> Price </option>
+        </select> <br/>
+        <!--
+        <container-element [ngSwitch]="filter.value">
+            <input *ngSwitchCase="price" type = "number" placeholder = "Enter Price Value" #filterText/>
+            <input *ngSwitchCase="location" type = "number" placeholder = "Enter Price Value" #filterText/>
+            <p *ngSwitchDefault>Some Issues Occured</p>
+        </container-element>
+        -->
+        <button type="button" (click)="addFilterType(filter.value); addFilterValue(filterText.value)">Filter Results</button>
+          
+    </div>
+
+</div>
