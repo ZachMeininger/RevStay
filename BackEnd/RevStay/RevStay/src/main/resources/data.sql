@@ -29,6 +29,8 @@ CREATE TABLE Hotel_Account(
     Hotel_Address varchar(100) NOT NULL,
     Hotel_Description varchar(200) NOT NULL,
     Hotel_Image varchar(200) NOT NULL,
+    Price_High decimal(10,2) NOT NULL,
+    Price_Low decimal(10,2) NOT NULL,
     Hotel_Pool bit NOT NULL,
     Hotel_Sauna bit NOT NULL,
     Hotel_Rest bit NOT NULL,
@@ -81,15 +83,28 @@ CREATE TABLE Customer_Favorite(
 
 
 
+<<<<<<< HEAD
 INSERT INTO User_Account VALUES (1,'email','password','sq','sa',1);
 INSERT INTO Customer_Account VALUES (1,'email','password',1);
 INSERT INTO Hotel_Account VALUES (1,'name1','CA','description1','image1',0,0,0,1);
 INSERT INTO Hotel_Account VALUES (2,'name2','WA','description2','image2',0,0,0,1);
 INSERT INTO Hotel_Account VALUES (3,'name3','CA','description3','image3',0,0,0,1);
 INSERT INTO Hotel_Account VALUES (4,'name4','NB','description4','image4',0,0,0,1);
+=======
+INSERT INTO User_Account(User_Email, User_Password, Security_Question, Security_Answer, Account_Type) VALUES ('email','password','sq','sa',1);
+INSERT INTO Customer_Account(Customer_First, Customer_Last, User_Id) VALUES ('Bob','Barker',1);
+INSERT INTO Hotel_Account(Hotel_Name, Hotel_Address, Hotel_Description, Hotel_Image, Hotel_Pool, Hotel_Sauna, Hotel_Rest, User_Id) VALUES ('name1','address1','description1','image1',0,0,0,1);
+INSERT INTO Hotel_Account(Hotel_Name, Hotel_Address, Hotel_Description, Hotel_Image, Hotel_Pool, Hotel_Sauna, Hotel_Rest, User_Id) VALUES ('name2','address2','description2','image2',0,0,0,1);
+INSERT INTO Hotel_Account(Hotel_Name, Hotel_Address, Hotel_Description, Hotel_Image, Hotel_Pool, Hotel_Sauna, Hotel_Rest, User_Id) VALUES ('name3','address3','description3','image3',0,0,0,1);
+INSERT INTO Hotel_Account(Hotel_Name, Hotel_Address, Hotel_Description, Hotel_Image, Hotel_Pool, Hotel_Sauna, Hotel_Rest, User_Id) VALUES ('name4','address4','description4','image4',0,0,0,1);
+>>>>>>> 993e44d6645e019f5134ff660f4330e8704a396d
 
-INSERT INTO Customer_Review VALUES (1,4,'first review',2,1);
-INSERT INTO Customer_Review VALUES (2,2,'first review',2,1);
-INSERT INTO Customer_Review VALUES (3,3,'first review',2,1);
+--INSERT INTO Customer_Review VALUES (1,4,'first review',2,1);
+--INSERT INTO Customer_Review VALUES (2,2,'first review',2,1);
+--INSERT INTO Customer_Review VALUES (3,3,'first review',2,1);
+
+INSERT INTO Hotel_Room VALUES (1,1,'Deluxe Queen',1,125.00, 'image',0,1,0,1);
+INSERT INTO Hotel_Room VALUES (2,2,'Studio King',1,125.00, 'image',0,1,0,1);
+INSERT INTO Customer_Booking VALUES (1,'2024-03-24','2024-03-27',0,0,2,1);
 
 

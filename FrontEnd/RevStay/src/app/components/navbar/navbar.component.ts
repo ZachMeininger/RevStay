@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   
   loggedIn: Number = 2;
 
@@ -17,11 +17,9 @@ export class NavbarComponent {
   }
   
   checkAccount(): void {
-    console.log(sessionStorage.getItem("loggedIn"));
     if(sessionStorage.getItem("loggedIn") != null)
     {
       this.loggedIn = Number(sessionStorage.getItem("loggedIn"));
     }
-    
   }
 }

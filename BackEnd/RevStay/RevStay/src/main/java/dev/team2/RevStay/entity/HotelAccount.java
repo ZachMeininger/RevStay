@@ -20,6 +20,10 @@ public class HotelAccount {
 
     private String hotelImage;
 
+    private Double priceHigh;
+
+    private Double priceLow;
+
     private Boolean hotelPool;
 
     private Boolean hotelSauna;
@@ -32,23 +36,27 @@ public class HotelAccount {
 
     }
 
-    public HotelAccount(String HotelName, String HotelAddress, String HotelDescription, String HotelImage, Boolean HotelPool, Boolean HotelSauna, Boolean HotelRest, Integer UserId) {
+    public HotelAccount(String HotelName, String HotelAddress, String HotelDescription, String HotelImage, Double PriceHigh, Double PriceLow,  Boolean HotelPool, Boolean HotelSauna, Boolean HotelRest, Integer UserId) {
         this.hotelName = HotelName;
         this.hotelAddress = HotelAddress;
         this.hotelDescription = HotelDescription;
         this.hotelImage = HotelImage;
+        this.priceHigh = PriceHigh;
+        this.priceLow = PriceLow;
         this.hotelPool = HotelPool;
         this.hotelSauna = HotelSauna;
         this.hotelRest = HotelRest;
         this.userId = UserId;
     }
 
-    public HotelAccount(Integer HotelId, String HotelName, String HotelAddress, String HotelDescription, String HotelImage, Boolean HotelPool, Boolean HotelSauna, Boolean HotelRest, Integer UserId) {
+    public HotelAccount(Integer HotelId, String HotelName, String HotelAddress, String HotelDescription, String HotelImage, Double PriceHigh, Double PriceLow, Boolean HotelPool, Boolean HotelSauna, Boolean HotelRest, Integer UserId) {
         this.hotelId = HotelId;
         this.hotelName = HotelName;
         this.hotelAddress = HotelAddress;
         this.hotelDescription = HotelDescription;
         this.hotelImage = HotelImage;
+        this.priceHigh = PriceHigh;
+        this.priceLow = PriceLow;
         this.hotelPool = HotelPool;
         this.hotelSauna = HotelSauna;
         this.hotelRest = HotelRest;
@@ -59,7 +67,7 @@ public class HotelAccount {
         return hotelId;
     }
 
-    public void setCustomerId(Integer HotelId) {
+    public void setHotelId(Integer HotelId) {
         this.hotelId = HotelId;
     }
 
@@ -94,6 +102,14 @@ public class HotelAccount {
     public void setHotelImage(String HotelImage) {
         this.hotelImage = HotelImage;
     }
+
+    public Double getPriceHigh() {return priceHigh;}
+
+    public void setPriceHigh(Double PriceHigh) {this.priceHigh = priceHigh;}
+
+    public Double getPriceLow() {return priceLow;}
+
+    public void setPriceLow(Double PriceLow) {this.priceLow = priceLow;}
 
     public Boolean getHotelPool() {
         return hotelPool;

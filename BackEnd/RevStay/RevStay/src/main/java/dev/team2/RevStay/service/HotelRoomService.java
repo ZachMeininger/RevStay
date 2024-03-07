@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Transactional
 @Service
 public class HotelRoomService {
@@ -17,4 +19,9 @@ public class HotelRoomService {
     public HotelRoom addHotelRoom(HotelRoom hotelRoom) {
         return hotelroomRepository.save(hotelRoom);
     }
+
+    public List<HotelRoom> getHotelRoomByHotelId(int hotelId) {
+        return hotelroomRepository.findHotelRoomsByHotelId(hotelId);
+    }
+
 }

@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpHandler } from '@angular/common/http';
 import {HotelShowcaseComponent} from '../components/hotel-showcase/hotel-showcase.component';
 import { mockHotel, mockManyHotel } from '../utils/mockData';
 import {Hotel} from '../models/hotel';
-import { Observable } from 'rxjs';
+import {Room} from '../models/room';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelService {
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json' })
+  };
+  
 
-  constructor() { }
+  constructor(
+    private http : HttpClient
+  ) { }
   /*
   //Testing Purposes==========================================
   getHotel(){
@@ -47,6 +56,17 @@ export class HotelService {
        
   };
 
+  getRoomsByHotelId(hotelId: Number) : Observable<Room[]>  {
+     
+    const url = `http://localhost:8080/RoomsByHotelId/${hotelId}`;
+     return this.http.get<Room[]>(url);
+     
+   };
+
+   submitBooking() {
+
+   }
+
 
   async getAllHotels(filters : string,filterValue:string|number,searchExpected:string)  {
 
@@ -63,6 +83,7 @@ export class HotelService {
       let response = await fetch("http://localhost:8080/AllHotels", productFetch )
      
       //list of objects (being hotels)
+
       let responseBody = await response.json();
 
       let searchList : typeof responseBody = [];
@@ -104,6 +125,4 @@ export class HotelService {
       return returnList;
        
   };
-
-
 }

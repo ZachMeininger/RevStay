@@ -6,6 +6,7 @@ import { Hotel } from '../../models/hotel';
 import { Review } from '../../models/review';
 import {ReviewService} from '../../services/review.service'
 import { from,Observable,map } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ViewProductComponent implements OnInit {
   hotelReviews! : Review[];
  
 
-  constructor(private el : ElementRef, private reviewService : ReviewService){
+  constructor(private el : ElementRef, private reviewService : ReviewService, private router: Router){
     this.hotelString = sessionStorage.getItem("Current_Hotel");
     this.hotelString = (this.hotelString.replace('"{', '{')).replace('}"', '}');
     this.hotelObject = JSON.parse(this.hotelString);
@@ -87,6 +88,11 @@ export class ViewProductComponent implements OnInit {
     //console.log(response);
 
     //maybe refresh page here? take out ability to review here?
+  }
+
+  goToRoomsPage() {
+    this.router.navigate([`/hotelrooms/${this.hotelObject.hotelId}`])
+
   }
      
       
