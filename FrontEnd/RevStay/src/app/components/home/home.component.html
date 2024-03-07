@@ -3,6 +3,9 @@
 <div>
     <app-search (search)="addSearch($event)"></app-search>
     <app-filter (newFilterType)="addFilters($event)" (newFilterValue)="addFiltersValue($event)" ></app-filter>
+
+    <button id = "clear" (click) = "clearValues()">Clear</button>
+
     <ng-container *ngIf="hotelList$ | async as hotelList">
         @for (hotel of hotelList; track hotel;) {
             <div style = "text-align: center;">

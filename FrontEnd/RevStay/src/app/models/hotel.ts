@@ -4,6 +4,8 @@ export interface Hotel{
     hotelAddress:string,
     hotelDescription:string,
     hotelImage:string,
+    priceHigh:number,
+    priceLow:number,
     hotelPool:number,
     hotelSauna:number,
     hotelRest:number,

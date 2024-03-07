@@ -60,8 +60,7 @@ export class HomeComponent implements OnInit {
 
   addSearch(newSearch : string):void{
     this.searchText = newSearch;
-    console.log("Setting Search");
-    console.log(this.searchText);
+    this.loadHotels(this.filterType,this.filterValue);
     //this.loadHotels()
   }
 
@@ -89,6 +88,20 @@ export class HomeComponent implements OnInit {
     //console.log(this.filterValue);
   
   }
+
+  //=====================================================================================================================================
+  
+  clearValues():void{
+    
+    this.filterType = "";
+    this.filterValue = "";
+    this.searchText = "";
+    this.loadHotels(this.filterType,this.filterValue);
+    
+  }
+
+//=====================================================================================================================================
+
 //=====================================================================================================================================
   /* For TESTS
   loadTestHotel(){
