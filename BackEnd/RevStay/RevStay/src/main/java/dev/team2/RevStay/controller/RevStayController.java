@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import dev.team2.RevStay.entity.CustomerAccount;
 import dev.team2.RevStay.entity.CustomerReview;
 import dev.team2.RevStay.entity.HotelAccount;
+import dev.team2.RevStay.entity.HotelRoom;
 import dev.team2.RevStay.entity.UserAccount;
 import dev.team2.RevStay.service.*;
 
@@ -115,17 +116,25 @@ public class RevStayController {
     }
 
     @PostMapping(value = "/allReview")
-    public ResponseEntity<List<CustomerReview>> getAllReviewHandler(@RequestBody Integer hotel_id) throws JsonProcessingException
-    {
+    public ResponseEntity<List<CustomerReview>> getAllReviewHandler(@RequestBody Integer hotel_id) throws JsonProcessingException {
 
         List<CustomerReview> check = customerReviewService.getAllReviews(hotel_id);
 
-        System.out.println(check);
+        //System.out.println(check);
 
-        if(check != null)
-        {
+        if (check != null) {
             return ResponseEntity.ok(check);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(check);
+    }
+    @GetMapping(value = "/RoomsByHotelId/{hotelId}")
+    public ResponseEntity<List<HotelRoom>> getRoomsByHotelId(@PathVariable int hotelId) {
+
+        List<HotelRoom> rooms = hotelroomService.getHotelRoomByHotelId(hotelId);
+
+        if(rooms != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(rooms);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
     }
 }

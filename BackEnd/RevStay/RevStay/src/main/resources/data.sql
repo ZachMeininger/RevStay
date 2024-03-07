@@ -94,4 +94,8 @@ INSERT INTO Hotel_Account(Hotel_Name, Hotel_Address, Hotel_Description, Hotel_Im
 --INSERT INTO Customer_Review VALUES (2,2,'first review',2,1);
 --INSERT INTO Customer_Review VALUES (3,3,'first review',2,1);
 
+INSERT INTO Hotel_Room VALUES (1,1,'Deluxe Queen',1,125.00, 'image',0,1,0,1);
+INSERT INTO Hotel_Room VALUES (2,2,'Studio King',1,125.00, 'image',0,1,0,1);
+INSERT INTO Customer_Booking VALUES (1,'2024-03-24','2024-03-27',0,0,2,1);
+
 
