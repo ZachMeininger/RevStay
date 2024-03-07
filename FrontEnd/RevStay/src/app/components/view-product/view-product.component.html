@@ -21,16 +21,15 @@
             </div>
 
             <br/><br/><br/><br/>
-            <ng-container *ngFor="let review of hotelReviews; track review;">
+            @if(hotelReviews){
+                <ng-container *ngFor="let review of hotelReviews;">
                     <div id = "allReviews">
                         <label for = "reviewBody">{{review.customerId}} gave this hotel {{review.reviewStar}} stars</label>
                         <p id = "reviewBody">{{review.reviewBody}}</p>
                         <br/><br/>
                     </div>
             </ng-container>
-                
-        
-        
+            }
     </div>
 }@else{
 
