@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {HotelShowcaseComponent} from './components/hotel-showcase/hotel-showcase.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
