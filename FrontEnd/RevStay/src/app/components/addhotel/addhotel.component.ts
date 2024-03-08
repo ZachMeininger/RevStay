@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HotelService } from 'app/services/hotel.service';
 
 @Component({
   selector: 'app-addhotel',
@@ -15,9 +16,7 @@ export class AddhotelComponent {
   hotel: any = {
     hotelName: '',
     description: '',
-    address: '',
     city: '',
-    country: '',
     phoneNumber: '',
     email: '',
     price: '',
@@ -40,7 +39,10 @@ export class AddhotelComponent {
       }
     };
 
+   /*
     this.http.post<any>('http://localhost:8080/hotels', this.hotel)
       .subscribe(observer);
   }
+  */
+}
 }
