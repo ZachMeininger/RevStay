@@ -16,9 +16,7 @@ export class AddhotelComponent {
   hotel: any = {
     hotelName: '',
     description: '',
-    address: '',
     city: '',
-    country: '',
     phoneNumber: '',
     email: '',
     price: '',
