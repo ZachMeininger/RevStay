@@ -14,12 +14,16 @@ import { HotelService } from 'app/services/hotel.service';
 export class AddhotelComponent {
 
   hotel: any = {
+    hotelid: 0,
     hotelName: '',
+    hotelAddress: '',
     description: '',
-    city: '',
-    phoneNumber: '',
-    email: '',
-    price: '',
+    hotelImage: '',
+    hotelPriceHigh: '',
+    hotelPriceLow: '',
+    hotelPool: '',
+    hotelSauna: '',
+    hotelRest: '',
     availability: ''
   };
 
