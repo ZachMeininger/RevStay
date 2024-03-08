@@ -15,7 +15,7 @@ export const routes: Routes = [
     {path: 'hotelrooms/:id', component:HotelPageComponent},
     {path: 'home', component:HomeComponent},
     {path: 'hotel', component:ViewProductComponent},
-    {path: 'addhotel', component:AddhotelComponent},
+    {path: 'addHotel', component:AddhotelComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
     
 ];
