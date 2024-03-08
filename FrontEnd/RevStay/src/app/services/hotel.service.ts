@@ -70,7 +70,8 @@ export class HotelService {
 
   async getAllHotels(filters : string,filterValue:string|number,searchExpected:string)  {
 
-    let jsonPrice;
+    let jsonMinPrice;
+    let jsonMaxPrice;
     let jsonLocation;
     
     
@@ -103,7 +104,8 @@ export class HotelService {
       }
       for(let a in searchList){
 
-        jsonPrice = 0;
+        jsonMinPrice = searchList[a].priceHigh;
+        jsonMaxPrice = searchList[a].priceLow;
         jsonLocation = searchList[a].hotelAddress;
        
         switch(filters){
@@ -113,7 +115,11 @@ export class HotelService {
             }
             break;
           case "price":
-            if(jsonPrice == filterValue){
+
+            let minMax = (<string>(filterValue)).split("-");
+            let minValue =  Number(minMax[0]);
+            let maxValue = Number(minMax[1]);
+            if(jsonMaxPrice >=  minValue && jsonMinPrice <=  maxValue){
               returnList.push(searchList[a]);
             }
             break;

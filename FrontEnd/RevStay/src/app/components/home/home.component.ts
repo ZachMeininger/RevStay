@@ -73,12 +73,13 @@ export class HomeComponent implements OnInit {
 //=====================================================================================================================================
 
   addFiltersValue(newFilterValue : string):void{
+    
     switch(this.filterType){
       case "location":
         this.filterValue = newFilterValue;
         break;
       case "price":
-        this.filterValue = Number(newFilterValue);
+        this.filterValue = newFilterValue;
         break;
       default:
         this.filterValue = "error";

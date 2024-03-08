@@ -3,6 +3,7 @@
     <div>
         <label>Filter</label><br/>
         <input id = "filterText" type = "text" placeholder = "Please enter location" #filterText/>
+        <input id = "filterPrice2" type = "number" placeholder = "Max" hidden #filterPrice2/>
         <select name="filter" id="filter" (change) = "changeFilterType(filter.value)" #filter>
             <option value="location"> Location </option>
             <option value="price"> Price </option>
@@ -14,7 +15,7 @@
             <p *ngSwitchDefault>Some Issues Occured</p>
         </container-element>
         -->
-        <button type="button" (click)="addFilterType(filter.value); addFilterValue(filterText.value)">Filter Results</button>
+        <button type="button" (click)="addFilterType(filter.value); addFilterValue(filterText.value,filterPrice2.value)">Filter Results</button>
           
     </div>
 
