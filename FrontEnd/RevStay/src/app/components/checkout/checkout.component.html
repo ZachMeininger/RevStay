@@ -1,1 +1,26 @@
 <p>checkout works!</p>
+
+<h2>Checkout</h2>
+
+<div>
+    <label>
+        Cardholder Name:
+        <input [(ngModel)]="cardName" type = "text"/>
+    </label>
+    <br>
+    <label>
+        Card Number:
+        <input [(ngModel)]="cardNum" type = "text"/>
+    </label>
+    <br>
+    <label>
+        Expiration:
+        <input [(ngModel)]="cardExp" type = "text"/>
+    </label>
+    <label>
+        CVV:
+        <input [(ngModel)]="cardCvv" type = "text"/>
+    </label>
+    <br>
+    <button (click)="handleCheckout()">Checkout</button>
+</div>

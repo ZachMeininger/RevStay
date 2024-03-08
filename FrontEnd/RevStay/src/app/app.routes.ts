@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HotelPageComponent } from './components/hotel-page/hotel-page.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { AddhotelComponent } from './components/addhotel/addhotel.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: 'home', component:HomeComponent},
     {path: 'hotel', component:ViewProductComponent},
     {path: 'addHotel', component:AddhotelComponent},
+    {path: 'checkout', component:CheckoutComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
     
 ];
