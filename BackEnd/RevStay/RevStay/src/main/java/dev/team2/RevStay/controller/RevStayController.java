@@ -1,11 +1,7 @@
 package dev.team2.RevStay.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import dev.team2.RevStay.entity.CustomerAccount;
-import dev.team2.RevStay.entity.CustomerReview;
-import dev.team2.RevStay.entity.HotelAccount;
-import dev.team2.RevStay.entity.HotelRoom;
-import dev.team2.RevStay.entity.UserAccount;
+import dev.team2.RevStay.entity.*;
 import dev.team2.RevStay.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +32,11 @@ public class RevStayController {
     @Autowired
     HotelAccountService hotelaccountService;
     @Autowired
-    HotelRoomService hotelroomService;
+    HotelRoomService hotelRoomService;
     @Autowired
     CustomerReviewService customerReviewService;
+    @Autowired
+    CustomerBookingService customerBookingService;
 
     @PostMapping(value = "/register")
     public ResponseEntity<UserAccount> registrationHandler(@RequestBody UserAccount useraccount) throws JsonProcessingException
@@ -127,10 +125,26 @@ public class RevStayController {
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(check);
     }
+    @PostMapping("/createBooking")
+    public ResponseEntity<CustomerBooking> createBooking(@RequestBody CustomerBooking booking) {
+        System.out.println(booking.getBookingStart());
+        CustomerBooking createdBooking = customerBookingService.addCustomerBooking(booking);
+        if(createdBooking != null) {
+            return ResponseEntity.ok(createdBooking);
+        } else{
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+    }
+    @GetMapping("/getBookingsByCustomerId/{customerId}")
+    public ResponseEntity<List<CustomerBooking>> getBookingsByCustomerAccountId(@PathVariable int customerId){
+        List<CustomerBooking> bookings =  customerBookingService.getCustomerBookingsByCustomerAccountId(customerId);
+        return ResponseEntity.ok(bookings);
+
+    }
     @GetMapping(value = "/RoomsByHotelId/{hotelId}")
     public ResponseEntity<List<HotelRoom>> getRoomsByHotelId(@PathVariable int hotelId) {
 
-        List<HotelRoom> rooms = hotelroomService.getHotelRoomByHotelId(hotelId);
+        List<HotelRoom> rooms = hotelRoomService.getHotelRoomByHotelId(hotelId);
 
         if(rooms != null) {
             return ResponseEntity.status(HttpStatus.OK).body(rooms);

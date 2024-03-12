@@ -1,9 +1,6 @@
 package dev.team2.RevStay.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.awt.print.Book;
@@ -28,20 +25,25 @@ public class CustomerBooking {
 
     private Integer roomId;
 
+
+    @Column(name = "customerId")
+    private Integer customerAccountId;
+
     public CustomerBooking() {
 
     }
 
-    public CustomerBooking(LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer BookingGuests, Integer RoomId) {
+    public CustomerBooking(LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer BookingGuests, Integer RoomId, Integer customerAccountId) {
         this.bookingStart = BookingStart;
         this.bookingEnd = BookingEnd;
         this.bookingPaid = BookingPaid;
         this.bookingAccepted = BookingAccepted;
         this.bookingGuests = BookingGuests;
         this.roomId = RoomId;
+        this.customerAccountId = customerAccountId;
     }
 
-    public CustomerBooking(Integer BookingId, LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer BookingGuests, Integer RoomId) {
+    public CustomerBooking(Integer BookingId, LocalDate BookingStart, LocalDate BookingEnd, Boolean BookingPaid, Boolean BookingAccepted, Integer BookingGuests, Integer RoomId, Integer customerAccountId) {
         this.bookingId = BookingId;
         this.bookingStart = BookingStart;
         this.bookingEnd = BookingEnd;
@@ -49,6 +51,7 @@ public class CustomerBooking {
         this.bookingAccepted = BookingAccepted;
         this.bookingGuests = BookingGuests;
         this.roomId = RoomId;
+        this.customerAccountId = customerAccountId;
     }
 
     public Integer getBookingId() {
@@ -105,6 +108,14 @@ public class CustomerBooking {
 
     public void setRoomId(Integer RoomId) {
         this.roomId = RoomId;
+    }
+
+    public Integer getCustomerAccountId() {
+        return customerAccountId;
+    }
+
+    public void setCustomerAccountId(Integer customerAccountId) {
+        this.customerAccountId = customerAccountId;
     }
 
 }

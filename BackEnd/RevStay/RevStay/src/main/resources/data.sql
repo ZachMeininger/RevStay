@@ -60,7 +60,9 @@ CREATE TABLE Customer_Booking(
     Booking_Accepted bit NOT NULL,
     Booking_Guests int NOT NULL,
     Room_Id int NOT NULL,
-    FOREIGN KEY(Room_Id) references Hotel_Room(Room_Id)
+    Customer_Id int NOT NULL,
+    FOREIGN KEY(Room_Id) references Hotel_Room(Room_Id),
+    FOREIGN KEY(Customer_Id) references Customer_Account(Customer_Id)
 );
 
 CREATE TABLE Customer_Review(
@@ -114,6 +116,6 @@ INSERT INTO Customer_Review (Review_Star, Review_Body, Hotel_Id, Customer_Id) VA
 
 INSERT INTO Hotel_Room VALUES (1,1,'Deluxe Queen',1,125.00, 'image',0,1,0,1);
 INSERT INTO Hotel_Room VALUES (2,2,'Studio King',1,125.00, 'image',0,1,0,1);
-INSERT INTO Customer_Booking VALUES (1,'2024-03-24','2024-03-27',0,0,2,1);
+INSERT INTO Customer_Booking VALUES (0,'2024-03-24','2024-03-27',0,0,2,1,1);
 
 

@@ -1,8 +1,8 @@
 <p>hotel-page works!</p>
-<input type="date" name="checkInDate" id="checkInDate">
-<input [(ngModel)]="checkInDate" type="date" name="checkOutDate" id="checkOutDate">
+<input [(ngModel)]="checkInDate" type="date" name="checkInDate" id="checkInDate">
+<input [(ngModel)]="checkOutDate" type="date" name="checkOutDate" id="checkOutDate">
 <label for="numGuests">Number of Guests</label>
-<input type="number" name="numGuests" id="numGuests">
+<input [(ngModel)]="numGuests" type="number" name="numGuests" id="numGuests">
 <ul class="rooms">
       @for(room of rooms; track room){
     <li>

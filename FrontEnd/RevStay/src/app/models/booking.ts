@@ -4,5 +4,6 @@ export interface Booking{
     bookingGuests: Number,
     bookingPaid: boolean,
     bookingAccepted:boolean,
-    roomId: Number
+    roomId: Number,
+    customerAccountId: Number
 }

@@ -6,6 +6,7 @@ import {Hotel} from '../models/hotel';
 import {Room} from '../models/room';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Booking } from 'app/models/booking';
 
 
 @Injectable({
@@ -63,7 +64,10 @@ export class HotelService {
      
    };
 
-   submitBooking() {
+   submitBooking(bookingForRoom: Booking) {
+    console.log("entered submitBooking")
+    const url = `http://localhost:8080/createBooking`;
+    return this.http.post<Booking>(url,bookingForRoom);
 
    }
 
