@@ -32,6 +32,21 @@ export class ViewProductComponent implements OnInit {
     this.rating = 0;
   }
 
+  addFavorite(){
+
+    const hotel_id = this.hotelObject.hotelId;
+    let check_customer = sessionStorage.getItem("userId");
+    let customer_id = 0;
+
+    if(check_customer == null){
+      customer_id = 1;
+    }else{
+      customer_id = +sessionStorage.getItem("userId")!;
+    }
+    
+    this.reviewService.newFavorite(hotel_id,customer_id);
+  }
+
   ngOnInit():void{
     
     //this.hotelReviews = from(this.reviewService.allReviews(this.hotelObject.hotelId));

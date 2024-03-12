@@ -28,6 +28,8 @@ public class RevStayController {
     @Autowired
     UserAccountService useraccountService;
     @Autowired
+    CustomerFavoriteService favoriteService;
+    @Autowired
     CustomerAccountService customeraccountService;
     @Autowired
     HotelAccountService hotelaccountService;
@@ -83,6 +85,23 @@ public class RevStayController {
             return ResponseEntity.ok(accountCheck);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(accountCheck);
+    }
+
+    @PostMapping(value = "/newFavorite")
+    public ResponseEntity<CustomerFavorite> newFavoriteHandler(@RequestBody CustomerFavorite favorite) throws JsonProcessingException
+    {
+        System.out.println(favorite.getFavoriteId());
+        System.out.println(favorite.getCustomerId());
+        System.out.println(favorite.getHotelId());
+
+
+        CustomerFavorite favoriteCheck = favoriteService.addFavorite(favorite);
+
+        if(favoriteCheck != null)
+        {
+            return ResponseEntity.ok(favoriteCheck);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(favoriteCheck);
     }
 
     @GetMapping(value = "/AllHotels")

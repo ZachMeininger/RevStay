@@ -2,12 +2,28 @@
 
 @if(hotelObject){
     <div style = "text-align: center;">
-        
 
-            <h1> {{hotelObject.hotelName}}</h1>
+            <label> {{hotelObject.hotelName}}</label> <button (click) = "addFavorite()"> &#x2606;</button>
             <h2>{{hotelObject.hotelAddress}}</h2>
+            <img src ="{{hotelObject.hotelImage}}"  alt = "No Image Found"/>
             <p> {{hotelObject.hotelDescription}}</p>
-            <img src ="{{hotelObject.hotelImage}}"  alt = "{{hotelObject.hotelImage}}"/>
+            <p> ${{hotelObject.priceLow}} to ${{hotelObject.priceHigh}} a Night</p>
+            <div>
+            @if(hotelObject.hotelPool || hotelObject.hotelSauna || hotelObject.hotelRest){
+                @if(hotelObject.hotelPool){
+                    <p>Pool</p>
+                }
+                @if(hotelObject.hotelSauna){
+                    <p>Sauna</p>
+                }
+                @if(hotelObject.hotelRest){
+                    <p>Bed</p>
+                }
+            }@else{
+                <p>No Amenities Included</p>
+            }
+                
+            </div>
 
             <br/><br/><br/>
 

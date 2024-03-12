@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Review} from '../models/review'
+import {Favorite} from '../models/favorite'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,6 +25,30 @@ export class ReviewService {
     return json;
     //return json.stringify; 
   };
+
+  async newFavorite(hotel_id : number, customer_id : number){
+
+    let thisFavorite : Favorite = {
+      hotelId : hotel_id,
+      customerId:customer_id
+    }
+
+    console.log(thisFavorite);
+
+    const sendFavorite ={
+      method: "POST",
+      body: JSON.stringify(thisFavorite),
+      headers: {"Content-type": "application/json; charset=UTF-8"},
+    }
+   
+    let response = await fetch("http://localhost:8080/newFavorite", sendFavorite )
+   
+    //response should be the successfully added review object
+    let json = await response.json();
+    return json;
+    //return json.stringify; 
+  };
+
 
   async allReviews(hotel_id: number){
 
