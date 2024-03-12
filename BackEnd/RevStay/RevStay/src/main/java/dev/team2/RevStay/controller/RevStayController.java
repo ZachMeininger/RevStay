@@ -1,11 +1,7 @@
 package dev.team2.RevStay.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import dev.team2.RevStay.entity.CustomerAccount;
-import dev.team2.RevStay.entity.CustomerReview;
-import dev.team2.RevStay.entity.HotelAccount;
-import dev.team2.RevStay.entity.HotelRoom;
-import dev.team2.RevStay.entity.UserAccount;
+import dev.team2.RevStay.entity.*;
 import dev.team2.RevStay.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +27,8 @@ public class RevStayController {
 
     @Autowired
     UserAccountService useraccountService;
+    @Autowired
+    CustomerFavoriteService favoriteService;
     @Autowired
     CustomerAccountService customeraccountService;
     @Autowired
@@ -85,6 +83,23 @@ public class RevStayController {
             return ResponseEntity.ok(accountCheck);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(accountCheck);
+    }
+
+    @PostMapping(value = "/newFavorite")
+    public ResponseEntity<CustomerFavorite> newFavoriteHandler(@RequestBody CustomerFavorite favorite) throws JsonProcessingException
+    {
+        System.out.println(favorite.getFavoriteId());
+        System.out.println(favorite.getCustomerId());
+        System.out.println(favorite.getHotelId());
+
+
+        CustomerFavorite favoriteCheck = favoriteService.addFavorite(favorite);
+
+        if(favoriteCheck != null)
+        {
+            return ResponseEntity.ok(favoriteCheck);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(favoriteCheck);
     }
 
     @GetMapping(value = "/AllHotels")

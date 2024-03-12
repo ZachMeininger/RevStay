@@ -1,4 +1,6 @@
 package dev.team2.RevStay.repository;
 
-public interface CustomerFavoriteRepository {
-}
+import dev.team2.RevStay.entity.CustomerFavorite;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerFavoriteRepository extends JpaRepository<CustomerFavorite, Long> {}
