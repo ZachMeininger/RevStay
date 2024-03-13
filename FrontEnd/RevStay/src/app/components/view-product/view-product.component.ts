@@ -1,6 +1,4 @@
 import { Component, ElementRef, Inject, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Hotel } from '../../models/hotel';
 import { Review } from '../../models/review';
@@ -38,30 +36,23 @@ export class ViewProductComponent implements OnInit {
     let check_customer = sessionStorage.getItem("userId");
     let customer_id = 0;
 
-    if(check_customer == null){
-      customer_id = -1;
-    }else{
+    if(check_customer != null){
       customer_id = +sessionStorage.getItem("userId")!;
-    }
+    
     
     this.reviewService.newFavorite(hotel_id,customer_id);
-    //let star = this.el.nativeElement.getElementById("star");
-    //star.setAttribute("innerHTML","★")
-    //star.setAttribute("style", "color:yellow;");
-    
+    let star = this.el.nativeElement.querySelector("#star")
+  
+    star.setAttribute("style", "color:darkgoldenrod; margin-left: 10px;");
+    }
   }
 
   ngOnInit():void{
     
-    //this.hotelReviews = from(this.reviewService.allReviews(this.hotelObject.hotelId));
     from(this.reviewService.allReviews(this.hotelObject.hotelId))
     .subscribe((reviews) => {
        this.hotelReviews = reviews;
     });
-    
-    //console.log("Response Below");
-    //console.log(this.hotelReviews$);
-    //maybe refresh page here? take out ability to review here?
     
   }
 
