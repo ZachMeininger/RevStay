@@ -17,5 +17,10 @@ public class CustomerAccountService {
     {
         return customeraccountRepository.save(customerAccount);
     }
+    public int getAccountNumByUserId(int userid)
+    {
+        int value = customeraccountRepository.findCustomerAccountByUserId(userid).getCustomerId();
+        return value;
+    }
 
 }

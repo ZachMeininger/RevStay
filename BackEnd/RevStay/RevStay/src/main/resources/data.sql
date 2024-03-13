@@ -119,4 +119,6 @@ INSERT INTO Hotel_Room VALUES (1,1,'Deluxe Queen',1,125.00, 'image',0,1,0,1);
 INSERT INTO Hotel_Room VALUES (2,2,'Studio King',1,125.00, 'image',0,1,0,1);
 INSERT INTO Customer_Booking VALUES (0,'2024-03-24','2024-03-27',0,0,2,1,1);
 
+INSERT INTO Customer_Favorite (Hotel_Id,Customer_Id) VALUES (1,1);
+
 

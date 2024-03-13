@@ -100,7 +100,7 @@ export class RegisterComponent {
             }
             else if(data.accountType == 1)
             {
-              
+              router.navigate(['/home']);
             }
         }
     }

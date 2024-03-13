@@ -3,7 +3,7 @@
 @if(hotelObject){
     <div class = "center">
 
-            <label> {{hotelObject.hotelName}}</label> <button style = "margin-left: 10px;" (click) = "addFavorite()"> &#x2606;</button>
+            <label> {{hotelObject.hotelName}}</label> <button id = "star" style = "margin-left: 10px;" (click) = "addFavorite()" #star> ★</button>
             <h2>{{hotelObject.hotelAddress}}</h2>
             <img class = "imageSpecs" src ="{{hotelObject.hotelImage}}"  alt = "No Image Found"/>
             <p> {{hotelObject.hotelDescription}}</p>
