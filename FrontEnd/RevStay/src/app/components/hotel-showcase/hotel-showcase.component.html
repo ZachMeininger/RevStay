@@ -8,10 +8,10 @@
         
         <!-- <h1>{{hotel.hotelName}}</h1> -->
         
-        <button class = "imageShowcase" id = "hotelButton" (click) = "loadProductPage(hotel)">
+        <button class = "imageShowcase handleImage" id = "hotelButton" (click) = "loadProductPage(hotel)">
             <h1>{{hotel.hotelName}}</h1>
             <!-- <label for = "buttonImage">Button</label> -->
-            <img id = "buttonImage" src = {{hotel.hotelImage}} alt = "Image of Hotel" />
+            <img class = "imageSpecs" id = "buttonImage" src = {{hotel.hotelImage}} alt = "Image of Hotel" />
         </button>
     } @else {
         <p>Sorry no hotels here</p>
