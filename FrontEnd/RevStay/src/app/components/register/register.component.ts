@@ -100,7 +100,7 @@ export class RegisterComponent {
             }
             else if(data.accountType == 1)
             {
-              
+              router.navigate(['/home']);
             }
         }
     }
@@ -124,7 +124,7 @@ export class RegisterComponent {
       {
           let data = await response.json();
           console.log(data);
-          window.alert("Sucess!!! Account Created");
+          window.alert("Success!!! Account Created");
           router.navigate(['/home']);
       }
     }

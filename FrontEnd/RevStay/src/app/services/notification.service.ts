@@ -1,34 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { NewBookingNotificationDTO } from 'app/dto/new-booking-notification.dto'; 
 
 @Injectable({
   providedIn: 'root'
 })
-export class NotificationService {
-  notifications: string[] = [];
+export class BookingService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  addNotification(message: string) {
-    this.notifications.push(message);
+  createBooking(bookingDetails: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/booking', bookingDetails); 
   }
 
-  removeNotification(index: number) {
-    this.notifications.splice(index, 1);
+  notifyNewBooking(userId: number): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/notifyBooking', { userId });
   }
 
-  clearNotifications() {
-    this.notifications = [];
-  }
-
-  bookingSuccessForCustomer() {
-    this.addNotification('Your booking was successful!');
-  }
-
-  bookingDetailsForOwner(details: string) {
-    this.addNotification(`A new booking was made: ${details}`);
-  }
-
-  bookingFailureForCustomer() {
-    this.addNotification('Sorry, your booking was unsuccessful.');
+  bookingSuccessForOwner(details: string): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/notifyBookingOwner', { details });
   }
 }

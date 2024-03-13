@@ -10,7 +10,7 @@
     <nav *ngIf="loggedIn==0; else owner_bar">
         <a href ="/home">Home</a>
         <a href ="/">Bookings</a>
-        <a href = "/">Sign Out</a>
+        <a href = "#" (click)="signOutFunc()">Sign Out</a>
     </nav>
 </ng-template>
 
@@ -18,7 +18,7 @@
     <nav>
         <a href ="/home">Home</a>
         <a href ="/">Bookings</a>
-        <a href = "/">Sign Out</a>
+        <a href = "#" (click)="signOutFunc()">Sign Out</a>
         <a href= "/addHotel">Add Hotel</a>
     </nav>
 </ng-template>

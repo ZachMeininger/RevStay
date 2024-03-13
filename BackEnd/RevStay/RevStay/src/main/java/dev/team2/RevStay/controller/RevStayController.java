@@ -75,6 +75,20 @@ public class RevStayController {
         }
     }
 
+    @PostMapping(value = "notifyBooking")
+    public ResponseEntity<CustomerBooking> notificationBooking(@RequestBody CustomerBooking customerBooking) throws JsonProcessingException
+    {
+        CustomerBooking bookingCheck = customerBookingService.addCustomerBooking(customerBooking);
+        if(bookingCheck != null)
+        {
+            return ResponseEntity.ok(bookingCheck);
+        }
+        else
+        {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(bookingCheck);
+        }
+    }
+
 
     @PostMapping(value = "/login")
     public ResponseEntity<UserAccount> loginHandler(@RequestBody UserAccount useraccount) throws JsonProcessingException
