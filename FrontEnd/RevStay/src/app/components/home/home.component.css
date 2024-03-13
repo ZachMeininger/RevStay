@@ -1,0 +1,15 @@
+.wrapper{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+.searchFilter{
+    float:left;
+    margin-right: 0;
+}
+
+/*
+.allTheHotels{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+*/

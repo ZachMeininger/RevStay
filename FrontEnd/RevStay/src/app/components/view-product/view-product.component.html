@@ -1,9 +1,9 @@
 <br/><br/><br/><br/><br/>
 
 @if(hotelObject){
-    <div style = "text-align: center;">
+    <div class = "center">
 
-            <label> {{hotelObject.hotelName}}</label> <button (click) = "addFavorite()"> &#x2606;</button>
+            <label> {{hotelObject.hotelName}}</label> <button style = "margin-left: 10px;" (click) = "addFavorite()"> &#x2606;</button>
             <h2>{{hotelObject.hotelAddress}}</h2>
             <img src ="{{hotelObject.hotelImage}}"  alt = "No Image Found"/>
             <p> {{hotelObject.hotelDescription}}</p>
@@ -11,13 +11,13 @@
             <div>
             @if(hotelObject.hotelPool || hotelObject.hotelSauna || hotelObject.hotelRest){
                 @if(hotelObject.hotelPool){
-                    <p>Pool</p>
+                    <p>Pool Included</p>
                 }
                 @if(hotelObject.hotelSauna){
-                    <p>Sauna</p>
+                    <p>Sauna Included</p>
                 }
                 @if(hotelObject.hotelRest){
-                    <p>Bed</p>
+                    <p>Bed Included</p>
                 }
             }@else{
                 <p>No Amenities Included</p>
@@ -32,21 +32,27 @@
             <br/><br/>
 
             <div id = "reviewSpace" hidden>
-                <input id = "ratingField"  type = "number" placeholder = "Please enter your rating out of 5" value = ""/>
+                <input id = "ratingField"  type = "number" placeholder = "Please enter your rating out of 5" value = ""/><br/>
                 <!-- <input  id = "inputField" (keypress) = "finishReview($event)" type = "text" placeholder = "Write your review here" style = "width: 500px; height: 100px;" value = "some placeholder"/>-->
                 <textarea id = "inputField" (keypress) = "finishReview($event)" type = "text" placeholder = "Write your review here" style = "width: 500px; height: 100px;" value = "some placeholder"></textarea>
             </div>
 
             <br/><br/><br/><br/>
-            @if(hotelReviews){
+            <div class = "container">
+                @if(hotelReviews){
                 <ng-container *ngFor="let review of hotelReviews;">
-                    <div id = "allReviews">
-                        <label for = "reviewBody">{{review.customerId}} gave this hotel {{review.reviewStar}} stars</label>
-                        <p id = "reviewBody">{{review.reviewBody}}</p>
-                        <br/><br/>
-                    </div>
-            </ng-container>
-            }
+                    
+                        <div class = "review" id = "allReviews">
+                            <br/>
+                            <label for = "reviewBody">{{review.customerId}}: {{review.reviewStar}} stars</label>
+                            <br/>
+                            <p id = "reviewBody">{{review.reviewBody}}</p>
+                            <br/><br/>
+                        </div>
+                    
+                </ng-container>
+                }
+            </div>
     </div>
 }@else{
 
