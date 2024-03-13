@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 
 @CrossOrigin
@@ -160,10 +161,17 @@ public class RevStayController {
         return ResponseEntity.ok(bookings);
 
     }
+    @GetMapping("/getHotelReservationsByUserId/{userId}")
+    public ResponseEntity<HashMap<String,List<CustomerBooking>>> getHotelReservationsByUserId(@PathVariable String userId){
+        //List<CustomerBooking> bookings =  customerBookingService.getCustomerBookingsByCustomerAccountId(userId);
+        HashMap<String,List<CustomerBooking>> bookingsByHotel = customerBookingService.getHotelReservationsByUserId(Integer.parseInt(userId));
+        return ResponseEntity.ok(bookingsByHotel);
+
+    }
     @GetMapping(value = "/RoomsByHotelId/{hotelId}")
     public ResponseEntity<List<HotelRoom>> getRoomsByHotelId(@PathVariable int hotelId) {
 
-        List<HotelRoom> rooms = hotelRoomService.getHotelRoomByHotelId(hotelId);
+        List<HotelRoom> rooms = hotelRoomService.getHotelRoomsByHotelId(hotelId);
 
         if(rooms != null) {
             return ResponseEntity.status(HttpStatus.OK).body(rooms);

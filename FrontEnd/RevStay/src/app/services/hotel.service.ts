@@ -7,6 +7,7 @@ import {Room} from '../models/room';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Booking } from 'app/models/booking';
+import { HotelReservation } from 'app/models/hotelReservation';
 
 
 @Injectable({
@@ -69,6 +70,12 @@ export class HotelService {
     const url = `http://localhost:8080/createBooking`;
     return this.http.post<Booking>(url,bookingForRoom);
 
+   }
+
+   getReservationsByUserId(userId: Number) {
+    console.log("entering Reservation by Id")
+    const url = `http://localhost:8080/getHotelReservationsByUserId/${userId}`
+    return this.http.get<HotelReservation>(url);
    }
 
 

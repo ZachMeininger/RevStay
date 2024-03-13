@@ -20,7 +20,7 @@ public class HotelRoomService {
         return hotelroomRepository.save(hotelRoom);
     }
 
-    public List<HotelRoom> getHotelRoomByHotelId(int hotelId) {
+    public List<HotelRoom> getHotelRoomsByHotelId(int hotelId) {
         return hotelroomRepository.findHotelRoomsByHotelId(hotelId);
     }
 

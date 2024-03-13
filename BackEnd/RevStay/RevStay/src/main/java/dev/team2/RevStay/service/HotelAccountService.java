@@ -24,4 +24,8 @@ public class HotelAccountService {
 
         return hotelaccountRepository.findAll();
     }
+
+    public List<HotelAccount> getHotelAccountsByUserId(long userId) {
+        return hotelaccountRepository.findHotelAccountsByUserId(userId);
+    }
 }
