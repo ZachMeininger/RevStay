@@ -40,10 +40,10 @@ export class ViewProductComponent implements OnInit {
       customer_id = +sessionStorage.getItem("userId")!;
     
     
-    this.reviewService.newFavorite(hotel_id,customer_id);
-    let star = this.el.nativeElement.querySelector("#star")
+      this.reviewService.newFavorite(hotel_id,customer_id);
+      let star = this.el.nativeElement.querySelector("#star")
   
-    star.setAttribute("style", "color:darkgoldenrod; margin-left: 10px;");
+      star.setAttribute("style", "color:darkgoldenrod; margin-left: 10px;");
     }
   }
 
@@ -95,10 +95,6 @@ export class ViewProductComponent implements OnInit {
     const response = this.reviewService.newReview(review);
     location.reload();
 
-    //console.log("Response Below");
-    //console.log(response);
-
-    //maybe refresh page here? take out ability to review here?
   }
 
   goToRoomsPage() {

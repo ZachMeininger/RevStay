@@ -164,7 +164,7 @@ public class RevStayController {
     @PostMapping(value = "/newReview")
     public ResponseEntity<CustomerReview> createNewReviewHandler(@RequestBody CustomerReview review) throws JsonProcessingException
     {
-
+        review.setCustomerId(customeraccountService.getAccountNumByUserId(review.getCustomerId()));
         CustomerReview check = customerReviewService.addReview(review);
 
         //System.out.println(check);
