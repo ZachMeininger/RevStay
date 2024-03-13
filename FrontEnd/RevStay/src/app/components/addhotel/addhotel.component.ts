@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotelService } from 'app/services/hotel.service';
+import {Hotel} from '../../models/hotel';
 
 @Component({
   selector: 'app-addhotel',
@@ -13,40 +14,33 @@ import { HotelService } from 'app/services/hotel.service';
 })
 export class AddhotelComponent {
 
-  hotel: any = {
-    hotelid: 0,
+  hotel: Hotel = {
+    hotelId: 0,
     hotelName: '',
     hotelAddress: '',
-    description: '',
+    hotelDescription: '',
     hotelImage: '',
-    hotelPriceHigh: '',
-    hotelPriceLow: '',
-    hotelPool: '',
-    hotelSauna: '',
-    hotelRest: '',
-    availability: ''
+    priceHigh: 0,
+    priceLow: 0,
+    hotelPool: 0,
+    hotelSauna: 0,
+    hotelRest: 0,
+    userId: 0
   };
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private hotelService: HotelService) { }
 
   onSubmit(): void {
-    const observer = {
-      next: (response: any) => {
+    
+    this.hotelService.addHotel(this.hotel).subscribe(
+      (response: any) => {
         console.log('Hotel added successfully!', response);
-        this.router.navigate(['/success']); 
+        this.router.navigate(['/home']); 
       },
-      error: (error: any) => {
+      (error: any) => {
         console.error('Error occurred while adding hotel:', error);
-      },
-      complete: () => {
-        console.log('HTTP request completed');
       }
-    };
-
-   /*
-    this.http.post<any>('http://localhost:8080/hotels', this.hotel)
-      .subscribe(observer);
+    );
   }
-  */
 }
-}
+

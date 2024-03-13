@@ -14,14 +14,29 @@ import { HotelReservation } from 'app/models/hotelReservation';
   providedIn: 'root'
 })
 export class HotelService {
+
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json' })
   };
+
+  constructor(private http: HttpClient) { }
+
+  addHotel(hotel: Hotel): Observable<any> {
+    const url = `http://localhost:8080/addHotel`;
+
+    console.log(hotel);
+    console.log(hotel.priceHigh == 1000);
+    
+    return this.http.post<Hotel>(url, hotel).pipe(
+      catchError(error => {
+        console.error('Error adding hotel:', error);
+        throw error;
+      })
+    );
+  }
+
   
 
-  constructor(
-    private http : HttpClient
-  ) { }
   /*
   //Testing Purposes==========================================
   getHotel(){
@@ -66,11 +81,24 @@ export class HotelService {
    };
 
    submitBooking(bookingForRoom: Booking) {
-    console.log("entered submitBooking")
+    console.log("entered submitBooking");
     const url = `http://localhost:8080/createBooking`;
-    return this.http.post<Booking>(url,bookingForRoom);
-
-   }
+    return this.http.post<Booking>(url, bookingForRoom).pipe(
+      tap((response) => {
+        if (response) {
+          window.alert('Booking submitted successfully!');
+        } else {
+          window.alert('Failed to submit booking. Please try again.');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error occurred while submitting booking:', error);
+        window.alert('Failed to submit booking. Please try again.');
+        throw error; 
+      })
+    );
+  }
+  
 
    getReservationsByUserId(userId: Number) {
     console.log("entering Reservation by Id")
