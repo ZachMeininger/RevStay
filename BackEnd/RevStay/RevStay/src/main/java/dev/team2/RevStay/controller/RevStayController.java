@@ -129,8 +129,6 @@ public class RevStayController {
         */
         CustomerFavorite favoriteCheck = favoriteService.addFavorite(favorite);
 
-        System.out.println(favoriteCheck);
-
         if(favoriteCheck != null)
         {
             return ResponseEntity.ok(favoriteCheck);
