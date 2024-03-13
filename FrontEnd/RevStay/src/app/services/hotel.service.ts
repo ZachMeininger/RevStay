@@ -22,9 +22,11 @@ export class HotelService {
 
   addHotel(hotel: Hotel): Observable<any> {
     const url = `http://localhost:8080/addHotel`;
-    return this.http.post<any>(url, hotel, {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    }).pipe(
+
+    console.log(hotel);
+    console.log(hotel.priceHigh == 1000);
+    
+    return this.http.post<Hotel>(url, hotel).pipe(
       catchError(error => {
         console.error('Error adding hotel:', error);
         throw error;

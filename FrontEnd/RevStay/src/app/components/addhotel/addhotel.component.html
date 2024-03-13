@@ -10,16 +10,16 @@
       </div>
       <div class="form-group">
         <label for="city">Address:</label>
-        <input type="text" class="form-control" id="city" [(ngModel)]="hotel.address" name="address" required>
+        <input type="text" class="form-control" id="city" [(ngModel)]="hotel.hotelAddress" name="address" required>
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
-        <textarea class="form-control" id="description" [(ngModel)]="hotel.description" name="description" required></textarea>
+        <textarea class="form-control" id="description" [(ngModel)]="hotel.hotelDescription" name="description" required></textarea>
       </div>
       
       <div class="form-group">
         <label for="phoneNumber">Image:</label>
-        <input type="tel" class="form-control" id="phoneNumber" [(ngModel)]="hotel.image" name="image" required>
+        <input type="tel" class="form-control" id="phoneNumber" [(ngModel)]="hotel.hotelImage" name="image" required>
       </div>
       <div class="form-group">
         <label for="price">PriceHigh:</label>
@@ -31,20 +31,22 @@
       </div>
       <div class="form-group">
         <label for="price">Pool:</label>
-        <input type="number" class="form-control" id="pool" [(ngModel)]="hotel.pool" name="pool" required>
+        <input type="number" class="form-control" id="pool" [(ngModel)]="hotel.hotelPool" name="pool" required>
       </div>
       <div class="form-group">
         <label for="price">Sauna:</label>
-        <input type="number" class="form-control" id="sauna" [(ngModel)]="hotel.sauna" name="sauna" required>
+        <input type="number" class="form-control" id="sauna" [(ngModel)]="hotel.hotelSauna" name="sauna" required>
       </div>
       <div class="form-group">
         <label for="price">Restaurant:</label>
-        <input type="number" class="form-control" id="restaurant" [(ngModel)]="hotel.restaurant" name="restaurant" required>
+        <input type="number" class="form-control" id="restaurant" [(ngModel)]="hotel.hotelRest" name="restaurant" required>
       </div>
+      <!--
       <div class="form-group">
         <label for="availability">Availability:</label>
         <input type="text" class="form-control" id="availability" [(ngModel)]="hotel.availability" name="availability" required>
       </div>
+      -->
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>

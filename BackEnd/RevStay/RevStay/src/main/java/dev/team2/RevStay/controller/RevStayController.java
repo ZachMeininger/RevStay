@@ -64,6 +64,20 @@ public class RevStayController {
 
     @PostMapping("/addHotel")
     public ResponseEntity<String> addHotel(@RequestBody HotelAccount hotel) {
+
+        System.out.println(hotel.getHotelAddress());
+        System.out.println(hotel.getHotelName());
+        System.out.println(hotel.getHotelDescription());
+        System.out.println(hotel.getPriceHigh().getClass().getName());
+        System.out.println(hotel.getPriceLow());
+        System.out.println(hotel.getPriceHigh());
+        System.out.println(hotel.getPriceHigh());
+
+
+
+
+
+
         HotelAccount savedHotel = hotelaccountService.saveHotel(hotel);
         if (savedHotel != null) {
             return ResponseEntity.status(HttpStatus.CREATED).body("Hotel added successfully");
