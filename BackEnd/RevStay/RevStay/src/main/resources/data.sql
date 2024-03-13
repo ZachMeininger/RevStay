@@ -5,6 +5,15 @@ DROP TABLE IF EXISTS  Hotel_Room;
 DROP TABLE IF EXISTS  Customer_Booking;
 DROP TABLE IF EXISTS  Customer_Review;
 DROP TABLE IF EXISTS  Customer_Favorite;
+DROP TABLE IF EXISTS  Customer_Invoice;
+DROP TABLE IF EXISTS  user_account;
+DROP TABLE IF EXISTS  customer_account;
+DROP TABLE IF EXISTS  hotel_account;
+DROP TABLE IF EXISTS  hotel_Room;
+DROP TABLE IF EXISTS  customer_booking;
+DROP TABLE IF EXISTS  customer_review;
+DROP TABLE IF EXISTS  customer_favorite;
+DROP TABLE IF EXISTS  customer_invoice;
 
 CREATE TABLE User_Account(
     User_Id int NOT NULL PRIMARY KEY auto_increment,
