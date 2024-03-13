@@ -16,14 +16,14 @@ export class AddhotelComponent {
   hotel: any = {
     hotelid: 0,
     hotelName: '',
-    hotelAddress: '',
+    address: '',
     description: '',
-    hotelImage: '',
+    image: '',
     hotelPriceHigh: '',
     hotelPriceLow: '',
     hotelPool: '',
     hotelSauna: '',
-    hotelRest: '',
+    restaurant: '',
     availability: ''
   };
 
@@ -43,10 +43,6 @@ export class AddhotelComponent {
       }
     };
 
-   /*
-    this.http.post<any>('http://localhost:8080/hotels', this.hotel)
-      .subscribe(observer);
-  }
-  */
+   
 }
 }

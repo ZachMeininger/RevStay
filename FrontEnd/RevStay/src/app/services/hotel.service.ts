@@ -13,14 +13,27 @@ import { Booking } from 'app/models/booking';
   providedIn: 'root'
 })
 export class HotelService {
+
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json' })
   };
+
+  constructor(private http: HttpClient) { }
+
+  addHotel(hotel: Hotel): Observable<any> {
+    const url = `http://localhost:8080/addHotel`;
+    return this.http.post<any>(url, hotel, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }).pipe(
+      catchError(error => {
+        console.error('Error adding hotel:', error);
+        throw error;
+      })
+    );
+  }
+
   
 
-  constructor(
-    private http : HttpClient
-  ) { }
   /*
   //Testing Purposes==========================================
   getHotel(){
