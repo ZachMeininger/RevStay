@@ -10,7 +10,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 })
 export class FilterComponent {
 
-  filterType! : string;
+  filterType : string = "location";
 
   @Output() newFilterType = new EventEmitter<string>();
   @Output() newFilterValue = new EventEmitter<string>();
@@ -22,6 +22,7 @@ export class FilterComponent {
 
   }
   addFilterValue(possibleLocation: string,valueMax:string) {
+    
     if(this.filterType != "location"){
       possibleLocation = possibleLocation +"-"+valueMax;
     }

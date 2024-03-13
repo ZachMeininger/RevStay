@@ -139,7 +139,7 @@ export class HotelService {
         jsonMinPrice = searchList[a].priceHigh;
         jsonMaxPrice = searchList[a].priceLow;
         jsonLocation = searchList[a].hotelAddress;
-       
+        //console.log(filterValue);
         switch(filters){
           case "location":
             if(jsonLocation == filterValue){
