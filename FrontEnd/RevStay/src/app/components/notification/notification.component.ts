@@ -15,12 +15,12 @@ export class NotificationComponent implements OnInit {
     const notificationMessage = sessionStorage.getItem('notificationMessage');
     if (notificationMessage) {
       this.message = notificationMessage; 
-      sessionStorage.removeItem('notificationMessage'); 
-      setTimeout(() => {
-        this.message = ''; 
-      }, 5000);
     } else {
       this.router.navigate(['/home']);
     }
+  }
+
+  dismissNotification(): void {
+    this.message = ''; 
   }
 }
