@@ -65,11 +65,24 @@ export class HotelService {
    };
 
    submitBooking(bookingForRoom: Booking) {
-    console.log("entered submitBooking")
+    console.log("entered submitBooking");
     const url = `http://localhost:8080/createBooking`;
-    return this.http.post<Booking>(url,bookingForRoom);
-
-   }
+    return this.http.post<Booking>(url, bookingForRoom).pipe(
+      tap((response) => {
+        if (response) {
+          window.alert('Booking submitted successfully!');
+        } else {
+          window.alert('Failed to submit booking. Please try again.');
+        }
+      }),
+      catchError((error) => {
+        console.error('Error occurred while submitting booking:', error);
+        window.alert('Failed to submit booking. Please try again.');
+        throw error; 
+      })
+    );
+  }
+  
 
 
   async getAllHotels(filters : string,filterValue:string|number,searchExpected:string)  {
