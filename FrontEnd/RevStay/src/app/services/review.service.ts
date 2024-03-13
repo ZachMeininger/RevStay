@@ -11,6 +11,10 @@ export class ReviewService {
   constructor() { }
 
   async newReview(review : Review){
+    if(sessionStorage.getItem("userId") != null){
+      review.customerId  +=+sessionStorage.getItem("user_id")!;
+    }
+    
 
     const reviewFetch ={
       method: "POST",
