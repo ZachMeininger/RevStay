@@ -27,22 +27,18 @@ export class AddhotelComponent {
     availability: ''
   };
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private hotelService: HotelService) { }
 
   onSubmit(): void {
-    const observer = {
-      next: (response: any) => {
+    this.hotelService.addHotel(this.hotel).subscribe(
+      (response: any) => {
         console.log('Hotel added successfully!', response);
-        this.router.navigate(['/success']); 
+        this.router.navigate(['/home']); 
       },
-      error: (error: any) => {
+      (error: any) => {
         console.error('Error occurred while adding hotel:', error);
-      },
-      complete: () => {
-        console.log('HTTP request completed');
       }
-    };
+    );
+  }
+}
 
-   
-}
-}
