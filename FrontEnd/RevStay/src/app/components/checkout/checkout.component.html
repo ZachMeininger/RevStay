@@ -6,11 +6,13 @@
         <input [(ngModel)]="cardName" type = "text"/>
     </label>
     <br>
+    <h4 *ngIf="nameError" style="color: red;">Please include a full name</h4>
     <label>
         Card Number:
         <input [(ngModel)]="cardNum" type = "text"/>
     </label>
     <br>
+    <h4 *ngIf="numError" style="color: red;">Please include a valid card number</h4>
     <label>
         Expiration:
         <input [(ngModel)]="cardExp" type = "text"/>
@@ -19,6 +21,8 @@
         CVV:
          <input [(ngModel)]="cardCvv" type = "text"/> 
     </label>
+    <h4 *ngIf="expError" style="color: red;">Please include a valid expiration date</h4>
+    <h4 *ngIf="cvvError" style="color: red;">Please include a valid cvv</h4>
     <br>
     <button (click)="handleCheckout()">Checkout</button>
 </div>
