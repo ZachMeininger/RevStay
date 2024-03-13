@@ -2,6 +2,7 @@ package dev.team2.RevStay.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dev.team2.RevStay.entity.*;
+import dev.team2.RevStay.repository.HotelAccountRepository;
 import dev.team2.RevStay.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,17 @@ public class RevStayController {
             }
         }
     }
+
+    @PostMapping("/addHotel")
+    public ResponseEntity<String> addHotel(@RequestBody HotelAccount hotel) {
+        HotelAccount savedHotel = hotelaccountService.saveHotel(hotel);
+        if (savedHotel != null) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Hotel added successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add hotel");
+        }
+    }
+
 
     @PostMapping(value = "registerCustomer")
     public ResponseEntity<CustomerAccount> registrationCustHandler(@RequestBody CustomerAccount customeraccount) throws JsonProcessingException

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Transactional
 @Service
 public class HotelAccountService {
 
@@ -16,8 +15,9 @@ public class HotelAccountService {
     HotelAccountRepository hotelaccountRepository;
 
     @Transactional
-    public HotelAccount addHotelAccount(HotelAccount hotelAccount) {
-        return hotelaccountRepository.save(hotelAccount);
+    public HotelAccount saveHotel(HotelAccount hotel) {
+
+        return hotelaccountRepository.save(hotel);
     }
 
     public List<HotelAccount> getAllHotels() {

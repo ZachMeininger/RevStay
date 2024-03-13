@@ -10,4 +10,6 @@ public interface HotelAccountRepository extends JpaRepository<HotelAccount, Long
     HotelAccount findHotelAccountByHotelId(long HotelId);
 
     HotelAccount findHotelAccountByUserId(long UserId);
+
+
 }
