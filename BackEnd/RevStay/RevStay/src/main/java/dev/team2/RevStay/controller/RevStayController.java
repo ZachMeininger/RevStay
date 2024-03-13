@@ -103,12 +103,19 @@ public class RevStayController {
     @PostMapping(value = "/newFavorite")
     public ResponseEntity<CustomerFavorite> newFavoriteHandler(@RequestBody CustomerFavorite favorite) throws JsonProcessingException
     {
+        favorite.setCustomerId(customeraccountService.getAccountNumByUserId(favorite.getCustomerId()));
+        /*
         System.out.println(favorite.getFavoriteId());
+
         System.out.println(favorite.getCustomerId());
+        System.out.println(favorite.getCustomerId().getClass().getName());
+
         System.out.println(favorite.getHotelId());
-
-
+        System.out.println(favorite.getHotelId().getClass().getName());
+        */
         CustomerFavorite favoriteCheck = favoriteService.addFavorite(favorite);
+
+        System.out.println(favoriteCheck);
 
         if(favoriteCheck != null)
         {

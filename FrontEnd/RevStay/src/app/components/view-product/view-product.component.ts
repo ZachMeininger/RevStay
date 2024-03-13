@@ -39,12 +39,16 @@ export class ViewProductComponent implements OnInit {
     let customer_id = 0;
 
     if(check_customer == null){
-      customer_id = 1;
+      customer_id = -1;
     }else{
       customer_id = +sessionStorage.getItem("userId")!;
     }
     
     this.reviewService.newFavorite(hotel_id,customer_id);
+    //let star = this.el.nativeElement.getElementById("star");
+    //star.setAttribute("innerHTML","★")
+    //star.setAttribute("style", "color:yellow;");
+    
   }
 
   ngOnInit():void{
