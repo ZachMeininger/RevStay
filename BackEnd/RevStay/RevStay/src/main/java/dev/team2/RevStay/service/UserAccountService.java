@@ -34,4 +34,16 @@ public class UserAccountService {
     {
         return useraccountRepository.findUserAccountByUserId(id);
     }
+
+    @Transactional
+    public UserAccount findUserAccountByEmailAndSecurity(UserAccount userAccount)
+    {
+        return useraccountRepository.findUserAccountByUserEmailAndSecurityQuestionAndSecurityAnswer(userAccount.getUserEmail(), userAccount.getSecurityQuestion(), userAccount.getSecurityAnswer());
+    }
+
+    @Transactional
+    public UserAccount changeUserAccountPassword(UserAccount userAccount)
+    {
+        return useraccountRepository.save(userAccount);
+    }
 }

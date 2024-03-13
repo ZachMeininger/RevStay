@@ -1,0 +1,17 @@
+
+.imageShowcase{
+    height: 350px;
+    width: 350px;
+    
+    margin : 10px;
+}
+
+.handleImage{
+    overflow: hidden;
+    image-resolution:inherit;
+}
+.imageSpecs{
+    width: 300px;
+    height: 300px;
+   
+}

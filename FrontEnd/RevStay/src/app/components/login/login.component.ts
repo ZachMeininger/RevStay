@@ -34,8 +34,6 @@ export class LoginComponent {
       accountType: this.accountType
     };
 
-    console.log(UserAccount);
-
     if((UserAccount.userEmail).length == 0 || (UserAccount.userPassword).length == 0)
     {
       this.emailError = 1;

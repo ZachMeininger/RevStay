@@ -98,6 +98,7 @@ export class ViewProductComponent implements OnInit {
   sendReview(review : Review):void{
 
     const response = this.reviewService.newReview(review);
+    location.reload();
 
     //console.log("Response Below");
     //console.log(response);

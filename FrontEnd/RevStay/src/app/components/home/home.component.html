@@ -1,12 +1,10 @@
-<p>home works!</p>
-
-<div>
-    <app-search (search)="addSearch($event)"></app-search>
+<div class = "searchFilter">
+    <app-search (search)="addSearch($event)" style = "width:fit-content;"></app-search><br/><br/>
     <app-filter (newFilterType)="addFilters($event)" (newFilterValue)="addFiltersValue($event)" ></app-filter>
-
-    <button id = "clear" (click) = "clearValues()">Clear</button>
-
-    <ng-container *ngIf="hotelList$ | async as hotelList">
+    <button id = "clear" (click) = "clearValues()" style = "margin-left: 20px;">Clear</button>
+</div>
+<div class = "wrapper">
+    <ng-container class = "allTheHotels" *ngIf="hotelList$ | async as hotelList">
         @for (hotel of hotelList; track hotel;) {
             <div style = "text-align: center;">
                 <app-hotel-showcase [inputHotel]=hotel></app-hotel-showcase>
