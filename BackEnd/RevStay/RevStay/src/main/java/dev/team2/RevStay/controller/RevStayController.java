@@ -87,6 +87,19 @@ public class RevStayController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(accountCheck);
     }
 
+    @PatchMapping(value = "/passChange")
+    public ResponseEntity<UserAccount> checkAccount(@RequestBody UserAccount userAccount) throws JsonProcessingException
+    {
+        UserAccount accountCheck = useraccountService.findUserAccountByEmailAndSecurity(userAccount);
+        if(accountCheck != null)
+        {
+            accountCheck.setUserPassword(userAccount.getUserPassword());
+            UserAccount accountCheck2 = useraccountService.changeUserAccountPassword(accountCheck);
+            return ResponseEntity.ok(accountCheck2);
+        }
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(accountCheck);
+    }
+
     @PostMapping(value = "/newFavorite")
     public ResponseEntity<CustomerFavorite> newFavoriteHandler(@RequestBody CustomerFavorite favorite) throws JsonProcessingException
     {

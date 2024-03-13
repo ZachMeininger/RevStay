@@ -8,6 +8,7 @@ import { HotelPageComponent } from './components/hotel-page/hotel-page.component
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { AddhotelComponent } from './components/addhotel/addhotel.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { PasswordchangeComponent } from './components/passwordchange/passwordchange.component';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path: 'hotel', component:ViewProductComponent},
     {path: 'addHotel', component:AddhotelComponent},
     {path: 'checkout', component:CheckoutComponent},
+    {path: 'passchange', component:PasswordchangeComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'}
     
 ];
