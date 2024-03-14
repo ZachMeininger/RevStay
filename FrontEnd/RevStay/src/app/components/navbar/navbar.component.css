@@ -2,20 +2,16 @@
     text-align: right;
     background-color: navy;
     padding: 1rem;
-    top:0;
-    left:0;
-    right:0;
+    position: fixed; 
+    width: 100%; 
+    z-index: 1000; 
 }
 
 nav {
     text-align: center;
     background-color: navy;
     padding: 1rem;
-    top:0;
-    left:0;
-    right:0;
 }
-
 
 a:hover {
     background-color: slategray;
