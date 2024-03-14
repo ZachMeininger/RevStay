@@ -51,19 +51,19 @@ export class RegisterComponent {
 
     if((UserAccount.userEmail).length < 12 || (UserAccount.userEmail).length > 100)
     {
-
+      console.log("Error 1");
     }
     else if((UserAccount.userPassword).length < 6 || (UserAccount.userPassword).length > 100)
     {
-
+      console.log("Error 2");
     }
     else if((UserAccount.securityQuestion).length < 1)
     {
-
+      console.log("Error 3");
     }
     else if((UserAccount.securityAnswer).length < 1)
     {
-
+      console.log("Error 4");
     }
     else
     {
@@ -72,7 +72,7 @@ export class RegisterComponent {
 
     async function fetchData(router : any) {
 
-        let response = await fetch("http://localhost:8080/register", {
+        let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/register", {
         method: "POST",
         body: JSON.stringify(UserAccount),
         headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -106,7 +106,7 @@ export class RegisterComponent {
     }
 
     async function fetchDataCust(router : any) {
-      let response = await fetch("http://localhost:8080/registerCustomer", {
+      let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/registerCustomer", {
       method: "POST",
       body: JSON.stringify(CustomerAccount),
       headers: {"Content-type": "application/json; charset=UTF-8"}

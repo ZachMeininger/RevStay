@@ -1,15 +1,57 @@
-.wrapper{
-    display:grid;
-    grid-template-columns: 50% 50%;
-}
-.searchFilter{
-    float:left;
-    margin-right: 0;
+.searchFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/*
-.allTheHotels{
-    display:grid;
-    grid-template-columns: 50% 50%;
+.filterContainer {
+    margin-bottom: 10px;
 }
-*/
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#clear,
+app-filter button {
+    background-color: navy;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.hotel-container {
+    margin: 10px auto; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-container > app-hotel-showcase {
+    display: block;
+    margin: 0 auto; 
+    width: 100%; 
+}
+
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+    }
+}
+

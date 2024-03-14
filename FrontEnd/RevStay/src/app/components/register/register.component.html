@@ -1,56 +1,43 @@
-
-<div>
-    <h2>Registration</h2>
-    <label>
-        Email Address:
-        <input [(ngModel)]="userEmail" type = "text"/>
-    </label>
-    <br>
-    <label>
-        Password:
-        <input [(ngModel)]="userPassword" type = "password"/>
-    </label>
-    <br>
-    <label>
-        Security Question:
-        <input [(ngModel)]="securityQuestion" type = "text"/>
-    </label>
-    <br>
-    <label>
-        Answer:
-        <input [(ngModel)]="securityAnswer" type = "text"/>
-    </label>
-    <br>
-
-    <form (change) = "handleType()">
-        <label>
-            <input type = "radio" name="userType" checked="checked">
-            <span>Hotel Guest</span>
-        </label>
-        <label>
-            <input type = "radio" name="userType">
-            <span>Hotel Owner</span>
-        </label>
-             
-    </form>
-
-    <div *ngIf="accountType; else hotel_reg">
-        <h1>Owner Account</h1>
+<div class="registration-container">
+    <div class="blurry-background"></div>
+    <div class="registration-content">
+        <h2>Registration</h2>
+        <label>Email Address:</label>
+        <input [(ngModel)]="userEmail" type="text">
+        <br>
+        <label>Password:</label>
+        <input [(ngModel)]="userPassword" type="password">
+        <br>
+        <label>Security Question:</label>
+        <input [(ngModel)]="securityQuestion" type="text">
+        <br>
+        <label>Answer:</label>
+        <input [(ngModel)]="securityAnswer" type="text">
+        <br>
+        <form class="user-type-form" (change)="handleType()">
+            <label>
+                <input type="radio" name="userType" checked="checked">
+                <span>Hotel Guest</span>
+            </label>
+            <label>
+                <input type="radio" name="userType">
+                <span>Hotel Owner</span>
+            </label>
+        </form>
+        <div *ngIf="accountType; else hotel_reg">
+            <h3>Owner Account</h3>
+        </div>
+        <ng-template #hotel_reg>
+            <div class="guest-account">
+                <h3 class="guest">Guest Account</h3>
+                <label>First Name:</label>
+                <input [(ngModel)]="customerFirst" type="text">
+                <br>
+                <label>Last Name:</label>
+                <input [(ngModel)]="customerLast" type="text">
+                <br>
+            </div>
+        </ng-template>
+        <button (click)="handleReg()">Create Account</button>
     </div>
-
-    <ng-template #hotel_reg>
-        <h1>Guest Account</h1>
-        <label>
-            First Name:
-            <input [(ngModel)]="customerFirst" type = "text"/>
-        </label>
-        <br>
-        <label>
-            Last Name:
-            <input [(ngModel)]="customerLast" type = "text"/>
-        </label>
-        <br>
-    </ng-template>
-
-    <button (click)="handleReg()">Create Account</button>
 </div>

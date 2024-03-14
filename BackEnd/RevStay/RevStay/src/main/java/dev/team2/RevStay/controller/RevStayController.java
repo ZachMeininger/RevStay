@@ -205,7 +205,8 @@ public class RevStayController {
     }
     @PostMapping("/createBooking")
     public ResponseEntity<CustomerBooking> createBooking(@RequestBody CustomerBooking booking) {
-        System.out.println(booking.getBookingStart());
+        //System.out.println(booking.getBookingStart());
+        booking.setCustomerAccountId(customeraccountService.getAccountNumByUserId(booking.getCustomerAccountId()));
         CustomerBooking createdBooking = customerBookingService.addCustomerBooking(booking);
         if(createdBooking != null) {
             return ResponseEntity.ok(createdBooking);

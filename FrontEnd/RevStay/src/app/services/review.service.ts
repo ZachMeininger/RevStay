@@ -22,7 +22,7 @@ export class ReviewService {
       headers: {"Content-type": "application/json; charset=UTF-8"},
     }
    
-    let response = await fetch("http://localhost:8080/newReview", reviewFetch )
+    let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/newReview", reviewFetch )
    
     //response should be the successfully added review object
     let json = await response.json();
@@ -45,7 +45,7 @@ export class ReviewService {
       headers: {"Content-type": "application/json; charset=UTF-8"},
     }
    
-    let response = await fetch("http://localhost:8080/newFavorite", sendFavorite )
+    let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/newFavorite", sendFavorite )
    
     //response should be the successfully added review object
     let json = await response.json();
@@ -62,7 +62,7 @@ export class ReviewService {
       headers: {"Content-type": "application/json; charset=UTF-8"},
     }
    
-    let response = await fetch("http://localhost:8080/allReview", allReviewFetch )
+    let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/allReview", allReviewFetch )
    
     //response should be the successfully added review object
     let json = await response.json();

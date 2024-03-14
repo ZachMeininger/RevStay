@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Hotel } from 'app/models/hotel';
 import { HotelService } from 'app/services/hotel.service';
-import {Hotel} from '../../models/hotel';
 
 @Component({
   selector: 'app-addhotel',

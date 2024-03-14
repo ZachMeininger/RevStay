@@ -22,7 +22,7 @@ export class HotelService {
   constructor(private http: HttpClient) { }
 
   addHotel(hotel: Hotel): Observable<any> {
-    const url = `http://localhost:8080/addHotel`;
+    const url = `http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/addHotel`;
 
     console.log(hotel);
     console.log(hotel.priceHigh == 1000);
@@ -64,7 +64,7 @@ export class HotelService {
         headers: {"Content-type": "application/json; charset=UTF-8"},
       }
      
-      let response = await fetch("http://localhost:8080/named-hotel", hotelFetch )
+      let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/named-hotel", hotelFetch )
      
       //list of objects (being hotels)
       let json = await response.json();
@@ -75,14 +75,14 @@ export class HotelService {
 
   getRoomsByHotelId(hotelId: Number) : Observable<Room[]>  {
      
-    const url = `http://localhost:8080/RoomsByHotelId/${hotelId}`;
+    const url = `http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/RoomsByHotelId/${hotelId}`;
      return this.http.get<Room[]>(url);
      
    };
 
    submitBooking(bookingForRoom: Booking) {
     console.log("entered submitBooking");
-    const url = `http://localhost:8080/createBooking`;
+    const url = `http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/createBooking`;
     return this.http.post<Booking>(url, bookingForRoom).pipe(
       tap((response) => {
         if (response) {
@@ -103,14 +103,14 @@ export class HotelService {
     console.log("entered updateBooking")
   }
   getBookingsByCustomerId(customerId: Number) {
-    const url = `http://localhost:8080/getBookingsByCustomerId/${customerId}`
+    const url = `http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/getBookingsByCustomerId/${customerId}`
     return this.http.get<Booking[]>(url);
   }
   
 
    getReservationsByUserId(userId: Number) {
     console.log("entering Reservation by Id")
-    const url = `http://localhost:8080/getHotelReservationsByUserId/${userId}`
+    const url = `http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/getHotelReservationsByUserId/${userId}`
     return this.http.get<Map<string,Booking[]>>(url);
    }
 
@@ -128,7 +128,7 @@ export class HotelService {
         headers: {"Content-type": "application/json; charset=UTF-8"},
       }
      
-      let response = await fetch("http://localhost:8080/AllHotels", productFetch )
+      let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/AllHotels", productFetch )
      
       //list of objects (being hotels)
 
@@ -154,7 +154,7 @@ export class HotelService {
         jsonMinPrice = searchList[a].priceHigh;
         jsonMaxPrice = searchList[a].priceLow;
         jsonLocation = searchList[a].hotelAddress;
-       
+        //console.log(filterValue);
         switch(filters){
           case "location":
             if(jsonLocation == filterValue){
