@@ -45,7 +45,7 @@ export class LoginComponent {
     
     async function fetchData(router : any) {
 
-        let response = await fetch("http://localhost:8080/login", {
+        let response = await fetch("http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/login", {
         method: "POST",
         body: JSON.stringify(UserAccount),
         headers: {"Content-type": "application/json; charset=UTF-8"}

@@ -10,7 +10,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 })
 export class FilterComponent {
 
-  filterType! : string;
+  filterType : string = "location";
 
   @Output() newFilterType = new EventEmitter<string>();
   @Output() newFilterValue = new EventEmitter<string>();
