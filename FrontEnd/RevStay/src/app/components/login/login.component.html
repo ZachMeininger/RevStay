@@ -1,20 +1,23 @@
-
-<div>
-    <h2>Login</h2>
-    <label>
-        Email Address:
-        <input [(ngModel)]="userEmail" type = "text"/>
-    </label>
-    <br>
-    <label>
-        Password:
-        <input [(ngModel)]="userPassword" type = "password"/>
-    </label>
-    <br>
-    <h4 *ngIf="emailError" style="color: red;">Please include an email address and password</h4>
-    <a href="/register">Create New Account</a>
-    <br>
-    <a href="/passchange">Forgot Password?</a>
-    <br>
-    <button (click)="handleLogin()">Log In</button>
+<div class="background-container">
+    <div class="blurry-background"></div>
+    <div class="container">
+        <h2>Login</h2>
+        <div class="input-container">
+            <label>Email Address:</label>
+            <input [(ngModel)]="userEmail" type="text">
+        </div>
+        <div class="input-container">
+            <label>Password:</label>
+            <input [(ngModel)]="userPassword" type="password">
+        </div>
+        <h4 *ngIf="emailError">Please include an email address and password</h4>
+        <div class="actions">
+            <div class="link-container">
+                <a href="/register">Create New Account</a>
+                <span>|</span>
+                <a href="/passchange">Forgot Password?</a>
+            </div>
+            <button (click)="handleLogin()">Log In</button>
+        </div>
+    </div>
 </div>

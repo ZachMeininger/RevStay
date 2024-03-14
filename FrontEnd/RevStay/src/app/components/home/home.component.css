@@ -1,22 +1,36 @@
 .searchFilter {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
 
-#clear {
-    background-color: #ff0000;
+.filterContainer {
+    margin-bottom: 10px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#clear,
+app-filter button {
+    background-color: navy;
     color: #fff;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 10px; 
 }
 
 .wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
     justify-content: center;
 }
 
@@ -25,12 +39,12 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 600px) {
-    .hotel-container {
-        width: calc(100% - 20px);
+    .wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
     }
 }
+
