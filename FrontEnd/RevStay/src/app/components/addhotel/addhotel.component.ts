@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Hotel } from 'app/models/hotel';
 import { HotelService } from 'app/services/hotel.service';
 
 @Component({
@@ -16,15 +17,15 @@ export class AddhotelComponent {
   hotel: any = {
     hotelid: 0,
     hotelName: '',
-    address: '',
-    description: '',
-    image: '',
-    hotelPriceHigh: '',
-    hotelPriceLow: '',
+    hotelAddress: '',
+    hotelDescription: '',
+    hotelImage: '',
+    priceHigh: '',
+    priceLow: '',
     hotelPool: '',
     hotelSauna: '',
-    restaurant: '',
-    availability: ''
+    hotelRest: '',
+    userid: 0
   };
 
   constructor(private http: HttpClient, private router: Router, private hotelService: HotelService) { }
