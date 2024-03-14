@@ -14,23 +14,24 @@ import { HotelService } from 'app/services/hotel.service';
 })
 export class AddhotelComponent {
 
-  hotel: any = {
-    hotelid: 0,
+  hotel: Hotel = {
+    hotelId: 0,
     hotelName: '',
     hotelAddress: '',
     hotelDescription: '',
     hotelImage: '',
-    priceHigh: '',
-    priceLow: '',
-    hotelPool: '',
-    hotelSauna: '',
-    hotelRest: '',
-    userid: 0
+    priceHigh: 0,
+    priceLow: 0,
+    hotelPool: 0,
+    hotelSauna: 0,
+    hotelRest: 0,
+    userId: 0
   };
 
   constructor(private http: HttpClient, private router: Router, private hotelService: HotelService) { }
 
   onSubmit(): void {
+    
     this.hotelService.addHotel(this.hotel).subscribe(
       (response: any) => {
         console.log('Hotel added successfully!', response);

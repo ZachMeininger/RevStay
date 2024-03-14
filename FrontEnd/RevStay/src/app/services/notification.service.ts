@@ -11,14 +11,14 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   createBooking(bookingDetails: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/booking', bookingDetails); 
+    return this.http.post<any>('http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/booking', bookingDetails); 
   }
 
   notifyNewBooking(userId: number): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/notifyBooking', { userId });
+    return this.http.post<any>('http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/notifyBooking', { userId });
   }
 
   bookingSuccessForOwner(details: string): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/notifyBookingOwner', { details });
+    return this.http.post<any>('http://ec2-18-191-108-249.us-east-2.compute.amazonaws.com:8080/notifyBookingOwner', { details });
   }
 }
