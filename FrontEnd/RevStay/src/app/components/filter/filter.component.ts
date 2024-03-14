@@ -22,6 +22,7 @@ export class FilterComponent {
 
   }
   addFilterValue(possibleLocation: string,valueMax:string) {
+    
     if(this.filterType != "location"){
       possibleLocation = possibleLocation +"-"+valueMax;
     }

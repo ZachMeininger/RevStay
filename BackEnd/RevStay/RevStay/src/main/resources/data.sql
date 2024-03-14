@@ -123,16 +123,6 @@ INSERT INTO Customer_Booking VALUES (0,'2024-03-24','2024-03-27',0,0,2,1,1);
 INSERT INTO Customer_Favorite (Hotel_Id,Customer_Id) VALUES (1,1);*/
 
 
-DROP TABLE IF EXISTS  customer_review;
-DROP TABLE IF EXISTS  customer_favorite;
-DROP TABLE IF EXISTS  customer_invoice;
-DROP TABLE IF EXISTS  customer_booking;
-DROP TABLE IF EXISTS  customer_account;
-DROP TABLE IF EXISTS  hotel_room;
-DROP TABLE IF EXISTS  hotel_account;
-DROP TABLE IF EXISTS  user_account;
-
-
 
 CREATE TABLE user_account(
     user_id int NOT NULL PRIMARY KEY auto_increment,
