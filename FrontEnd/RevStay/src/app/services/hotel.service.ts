@@ -98,12 +98,20 @@ export class HotelService {
       })
     );
   }
+
+  updateBooking(booking: Booking) {
+    console.log("entered updateBooking")
+  }
+  getBookingsByCustomerId(customerId: Number) {
+    const url = `http://localhost:8080/getBookingsByCustomerId/${customerId}`
+    return this.http.get<Booking[]>(url);
+  }
   
 
    getReservationsByUserId(userId: Number) {
     console.log("entering Reservation by Id")
     const url = `http://localhost:8080/getHotelReservationsByUserId/${userId}`
-    return this.http.get<HotelReservation>(url);
+    return this.http.get<Map<string,Booking[]>>(url);
    }
 
 

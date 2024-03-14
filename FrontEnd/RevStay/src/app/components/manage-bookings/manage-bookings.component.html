@@ -1,0 +1,13 @@
+<div>
+    @for(booking of bookings; track booking) {
+        <div>
+            <span>Booking Start date: {{booking.bookingStart}}</span>
+            <span>Booking End date: {{booking.bookingEnd}}</span>
+            <span>Number of guests: {{booking.bookingGuests}}</span>
+            <button (click) = "editBooking(booking)">Edit Booking </button>
+            <button (click) = "payForBooking(booking)">Pay for Booking </button>
+
+        </div>
+
+    }
+</div>

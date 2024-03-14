@@ -1,18 +1,18 @@
-<p>manage-reservations works!</p>
-<ul class = reservations>
-    <!--
-    @for(hotelReservation of reservations; track hotelReservation;) {
-        <li>
-            <p>{{hotelReservation.hotelName}}</p>
-            @for(booking of hotelReservation.hotelBookings; track booking;) {
-                <div>Booking Start date: {{booking.bookingStart}}</div>
-                <div>Booking End date: {{booking.bookingEnd}}</div>
-                <div>Number of guests: {{booking.bookingGuests}}</div>
-                <button (click) = "acceptBooking(booking)">Accept Booking </button>
-                <button (click) = "rejectBooking(booking)">Reject Booking </button>
-            }
-        </li>
-    }
--->
+<div class = reservations>
+    @for(item of mapFromServer.keys(); track item;) {
+            @if(mapFromServer.get(item)?.length != 0) {
 
-</ul>
+                <p>{{item}}</p>
+                @for(booking of mapFromServer.get(item); track booking;) {
+                    
+                    <div>
+                        <span>Booking Start date: {{booking.bookingStart}}</span>
+                        <span>Booking End date: {{booking.bookingEnd}}</span>
+                        <span>Number of guests: {{booking.bookingGuests}}</span>
+                        <button (click) = "acceptBooking(booking)">Accept Booking </button>
+                        <button (click) = "rejectBooking(booking)">Reject Booking </button>
+                    </div>
+                }
+            }
+    }
+</div>

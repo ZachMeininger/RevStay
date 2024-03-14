@@ -35,4 +35,10 @@ export class NavbarComponent implements OnInit{
 
     this.router.navigate(['/']);
   }
+  goToBookings(){
+    this.router.navigate(['/manageBookings']);
+  }
+  goToReservations(){
+    this.router.navigate(['/manageReservations'])
+  }
 }

@@ -9,6 +9,7 @@ import { ViewProductComponent } from './components/view-product/view-product.com
 import { AddhotelComponent } from './components/addhotel/addhotel.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ManageReservationsComponent } from './components/manage-reservations/manage-reservations.component';
+import { ManageBookingsComponent } from './components/manage-bookings/manage-bookings.component';
 import { PasswordchangeComponent } from './components/passwordchange/passwordchange.component';
 
 
@@ -21,7 +22,9 @@ export const routes: Routes = [
     {path: 'addHotel', component:AddhotelComponent},
     {path: 'checkout', component:CheckoutComponent},
     {path: 'manageReservations', component:ManageReservationsComponent},
+    {path: 'manageBookings', component:ManageBookingsComponent},
     {path: 'passchange', component:PasswordchangeComponent},
+
     {path: '', redirectTo: '/home', pathMatch: 'full'}
     
 ];
